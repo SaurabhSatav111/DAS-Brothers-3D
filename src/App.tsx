@@ -9,6 +9,7 @@ import Services from "./components/sections/Services";
 import About from "./components/sections/About";
 import Stats from "./components/sections/Stats";
 import ServicesDetail from "./components/sections/ServicesDetail";
+import Projects from "./components/sections/Projects";
 import Testimonials from "./components/sections/Testimonials";
 import Careers from "./components/sections/Careers";
 import CtaBanner from "./components/sections/CtaBanner";
@@ -55,6 +56,9 @@ function App() {
 
           {/* 8. Alternating Services Detail Layout (Vector blueprints inside) */}
           <ServicesDetail />
+
+          {/* Projects Section */}
+          <Projects />
 
           {/* 9. Testimonials (3D Perspective carousel) */}
           <Testimonials />
