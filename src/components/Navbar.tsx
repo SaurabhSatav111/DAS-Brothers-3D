@@ -34,24 +34,33 @@ export const Navbar: React.FC = () => {
         initial={{ y: -100, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.8, delay: 0.5, ease: [0.16, 1, 0.3, 1] }}
-        className={`fixed top-0 left-0 w-full z-40 transition-all duration-500 border-b ${
-          scrolled 
-            ? "glass-panel py-3 shadow-[0_4px_30px_rgba(0,0,0,0.4)] border-neutral-900/60" 
-            : "bg-transparent py-5 border-transparent"
-        }`}
+        style={{
+          background: scrolled ? 'rgba(13, 17, 23, 0.98)' : 'var(--dark-bg)',
+          borderBottom: '1px solid var(--border-dark)',
+          position: 'sticky',
+          top: 0,
+          zIndex: 1000,
+          padding: '0 8%',
+          height: '68px',
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'space-between'
+        }}
+        className="w-full"
       >
-        <div className="max-w-7xl mx-auto px-6 flex items-center justify-between">
+        <div className="w-full flex items-center justify-between">
           {/* Logo Brand area */}
           <a href="#home" className="flex items-center gap-3 group">
-            <div className="relative flex items-center justify-center w-10 h-10 rounded-xl bg-substation-dark/80 border border-neutral-800 shadow-[0_0_15px_rgba(245,166,35,0.1)] group-hover:border-electric-amber/50 transition-all duration-300">
-              <Zap className="w-5 h-5 text-electric-amber filter drop-shadow-[0_0_4px_rgba(245,166,35,0.7)] group-hover:rotate-12 transition-transform duration-300" />
-              {/* Pulsing ring around logo */}
-              <div className="absolute inset-0 rounded-xl border border-arc-cyan/20 animate-ping [animation-duration:3s]" />
+            <div className="relative flex items-center justify-center w-10 h-10 rounded-xl bg-substation-dark/80 border border-neutral-800 group-hover:border-electric-amber/50 transition-all duration-300">
+              <Zap className="w-5 h-5 text-electric-amber group-hover:rotate-12 transition-transform duration-300" />
             </div>
             
             <div className="flex flex-col">
-              <span className="font-orbitron font-black text-sm md:text-base tracking-wider text-text-light group-hover:text-electric-amber transition-colors duration-300">
-                DAS & BROTHERS
+              <span 
+                style={{ fontFamily: "'Playfair Display', serif", fontSize: '1.25rem', fontWeight: 700, color: '#ffffff' }}
+                className="tracking-wider transition-colors duration-300"
+              >
+                DAS & <span style={{color:'var(--accent)'}}>BROTHERS</span>
               </span>
               <span className="text-[9px] font-mono text-arc-cyan tracking-[0.2em] font-medium leading-none">
                 ELECTRICALS PVT LTD
@@ -60,16 +69,21 @@ export const Navbar: React.FC = () => {
           </a>
 
           {/* Desktop Nav Links */}
-          <div className="hidden lg:flex items-center gap-8">
+          <div className="hidden lg:flex items-center" style={{ gap: '2rem' }}>
             {navLinks.map((link) => (
               <a
                 key={link.name}
                 href={link.href}
-                className="relative font-inter text-sm font-medium text-text-light/80 hover:text-text-light tracking-wide transition-colors duration-300 py-2 group"
+                style={{
+                  fontFamily: "'Source Sans 3', sans-serif",
+                  fontSize: '0.88rem',
+                  fontWeight: 600,
+                  textTransform: 'uppercase',
+                  letterSpacing: '0.06em'
+                }}
+                className="text-[var(--dark-muted)] hover:text-[var(--accent)] transition-colors duration-300 py-2"
               >
                 {link.name}
-                {/* Electric hover sweep line */}
-                <span className="absolute bottom-0 left-0 w-full h-[2px] bg-gradient-to-r from-electric-amber to-arc-cyan origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-300 ease-out shadow-[0_0_8px_rgba(0,212,255,0.5)]" />
               </a>
             ))}
           </div>
@@ -78,11 +92,8 @@ export const Navbar: React.FC = () => {
           <div className="flex items-center gap-4">
             <a 
               href="#contact"
-              className="relative hidden sm:inline-flex items-center justify-center px-5 py-2.5 rounded-xl font-orbitron text-xs font-bold tracking-wider text-deep-grid-navy bg-electric-amber hover:bg-electric-amber-dark transition-all duration-300 overflow-hidden group shadow-[0_0_15px_rgba(245,166,35,0.3)] hover:shadow-[0_0_25px_rgba(245,166,35,0.6)]"
+              className="relative hidden sm:inline-flex items-center justify-center px-5 py-2.5 rounded-xl font-orbitron text-xs font-bold tracking-wider text-deep-grid-navy bg-electric-amber hover:bg-electric-amber-dark transition-all duration-300 overflow-hidden group"
             >
-              {/* Electric pulse rings behind button */}
-              <span className="absolute inset-0 w-full h-full rounded-xl border border-electric-amber animate-pulse-ring" />
-              
               <span className="relative z-10 flex items-center gap-2">
                 GET A QUOTE <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
               </span>
@@ -106,11 +117,9 @@ export const Navbar: React.FC = () => {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.3 }}
-            className="fixed inset-0 z-30 lg:hidden glass-panel flex flex-col justify-center px-8 border-none"
+            style={{ background: 'var(--dark-bg-3)' }}
+            className="fixed inset-0 z-30 lg:hidden flex flex-col justify-center px-8 border-none"
           >
-            {/* Grid overlay */}
-            <div className="absolute inset-0 grid-bg opacity-5 pointer-events-none" />
-
             <div className="flex flex-col gap-6 text-center">
               {navLinks.map((link, idx) => (
                 <motion.a
@@ -121,7 +130,7 @@ export const Navbar: React.FC = () => {
                   exit={{ x: -30, opacity: 0 }}
                   transition={{ delay: idx * 0.08, duration: 0.4 }}
                   onClick={() => setIsOpen(false)}
-                  className="font-orbitron text-xl font-bold tracking-wide text-text-light hover:text-electric-amber transition-colors duration-300 py-2 border-b border-neutral-900/40"
+                  className="font-orbitron text-xl font-bold tracking-wide text-[var(--dark-muted)] hover:text-[var(--accent)] transition-colors duration-300 py-2 border-b border-neutral-900/40"
                 >
                   {link.name}
                 </motion.a>
@@ -144,7 +153,7 @@ export const Navbar: React.FC = () => {
                 
                 <a 
                   href="tel:+91201234567" 
-                  className="flex items-center gap-2 font-mono text-xs text-arc-cyan hover:text-text-light transition-colors"
+                  className="flex items-center gap-2 font-mono text-xs text-[var(--dark-muted)] hover:text-[var(--accent)] transition-colors"
                 >
                   <PhoneCall className="w-3.5 h-3.5" /> +91 20 2749 1987
                 </a>
