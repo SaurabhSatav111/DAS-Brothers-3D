@@ -1,7 +1,5 @@
-import React, { useRef } from "react";
-import { motion, useInView } from "framer-motion";
-import { Compass, Network, Cable, Cpu, AlertTriangle, ShieldCheck, ArrowRight } from "lucide-react";
-import PcbScene from "../3d/PcbScene";
+import React from "react";
+import { Compass, Network, Cable, Cpu, AlertTriangle, ShieldCheck } from "lucide-react";
 
 interface ServicesProps {
   hoveredService: number | null;
@@ -9,191 +7,138 @@ interface ServicesProps {
 }
 
 export const Services: React.FC<ServicesProps> = ({ hoveredService, onHoverService }) => {
-  const sectionRef = useRef<HTMLDivElement>(null);
-  const isInView = useInView(sectionRef, { once: true, margin: "-100px" });
-
   const servicesData = [
     {
       title: "Electrical Design",
       desc: "Custom engineering layout designs, CAD blueprints, system protection coordination, and load calculation sheets.",
-      icon: Compass,
-      color: "from-arc-cyan/20 to-transparent",
-      borderColor: "group-hover:border-arc-cyan/40",
-      iconColor: "text-arc-cyan"
+      icon: Compass
     },
     {
       title: "Substation Construction",
       desc: "Turnkey erection & commissioning of 11kV / 22kV / 33kV substations, power transformers, and switchyard gantries.",
-      icon: Network,
-      color: "from-electric-amber/20 to-transparent",
-      borderColor: "group-hover:border-electric-amber/40",
-      iconColor: "text-electric-amber"
+      icon: Network
     },
     {
       title: "HT & LT Works",
       desc: "High Tension & Low Tension underground cable laying, straight jointing, end termination, and overhead line structures.",
-      icon: Cable,
-      color: "from-arc-cyan/20 to-transparent",
-      borderColor: "group-hover:border-arc-cyan/40",
-      iconColor: "text-arc-cyan"
+      icon: Cable
     },
     {
       title: "Panel Fabrication",
       desc: "Manufacturing custom electric control panels, power distribution boards (PDB), motor control centers (MCC), and APFC panels.",
-      icon: Cpu,
-      color: "from-electric-amber/20 to-transparent",
-      borderColor: "group-hover:border-electric-amber/40",
-      iconColor: "text-electric-amber"
+      icon: Cpu
     },
     {
       title: "Emergency Services",
       desc: "24/7 emergency breakdown troubleshooting, fault location trace testing, transformer oil filtration, and rapid restoration.",
-      icon: AlertTriangle,
-      color: "from-red-500/10 to-transparent",
-      borderColor: "group-hover:border-red-500/40",
-      iconColor: "text-red-500"
+      icon: AlertTriangle
     },
     {
       title: "Installation & Commissioning",
       desc: "Final testing parameters validation, safety statutory inspection approvals, and full energization sequence execution.",
-      icon: ShieldCheck,
-      color: "from-success-live/15 to-transparent",
-      borderColor: "group-hover:border-success-live/40",
-      iconColor: "text-success-live"
+      icon: ShieldCheck
     }
   ];
-
-  const gridVariants = {
-    hidden: {},
-    visible: {
-      transition: {
-        staggerChildren: 0.12
-      }
-    }
-  };
-
-  const cardVariants = {
-    hidden: { opacity: 0, y: 55 },
-    visible: { 
-      opacity: 1, 
-      y: 0,
-      transition: { duration: 0.8, ease: [0.16, 1, 0.3, 1] as const }
-    }
-  };
 
   return (
     <section 
       id="services" 
-      ref={sectionRef} 
-      className="relative py-24 px-6 md:px-12 lg:px-24 overflow-hidden z-10 bg-[#1A1A2E]/40"
+      className="sec-dark2 sec-pad"
     >
-      {/* Background elements */}
-      <div className="absolute top-[30%] right-[10%] w-[40%] h-[40%] rounded-full bg-electric-amber/5 blur-[150px] -z-20 pointer-events-none" />
-      <div className="absolute bottom-[10%] left-[5%] w-[30%] h-[30%] rounded-full bg-arc-cyan/5 blur-[120px] -z-20 pointer-events-none" />
+      <style>{`
+        .services-grid {
+          display: grid;
+          grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+          gap: 1.5rem;
+          margin-top: 3rem;
+        }
+        .service-card {
+          background: rgba(255, 255, 255, 0.04);
+          border: 1px solid var(--border-dark);
+          border-radius: var(--radius);
+          padding: 2rem;
+          transition: all 0.3s ease;
+          position: relative;
+        }
+        .service-card:hover {
+          background: rgba(245, 158, 11, 0.06);
+          border-color: rgba(245, 158, 11, 0.35);
+          transform: translateY(-5px);
+        }
+      `}</style>
 
       <div className="max-w-7xl mx-auto">
         {/* Header Title */}
-        <div className="text-center mb-16 max-w-2xl mx-auto">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={isInView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.5 }}
-            className="text-xs font-mono text-electric-amber tracking-[0.3em] uppercase mb-3"
-          >
+        <div>
+          <span className="text-xs font-mono text-[var(--accent)] tracking-[0.3em] uppercase block mb-3">
             Capabilities & EPC Solutions
-          </motion.div>
-          <motion.h2
-            initial={{ opacity: 0, y: 30 }}
-            animate={isInView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.6, delay: 0.1 }}
-            className="font-orbitron font-extrabold text-3xl md:text-5xl text-text-light tracking-tight mb-4"
-          >
+          </span>
+          <h2 className="sec-title">
             Wired for Excellence
-          </motion.h2>
-          <motion.p
-            initial={{ opacity: 0, y: 30 }}
-            animate={isInView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            className="font-inter text-text-light/60 text-sm md:text-base leading-relaxed"
+          </h2>
+          <div className="gold-bar" />
+          <p 
+            style={{
+              fontFamily: "'Source Sans 3', sans-serif",
+              fontSize: '1rem',
+              lineHeight: 1.9,
+              color: 'var(--dark-muted)'
+            }}
           >
-            Hover on cards or interact with the 3D Circuit Board to inspect our high-voltage electrical grid capabilities.
-          </motion.p>
+            Hover on cards to inspect our high-voltage electrical grid capabilities.
+          </p>
         </div>
 
-        {/* Split Layout: 3D PCB Left | Service Cards Right */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-stretch">
-          
-          {/* Left Column: 3D Circuit Board Canvas */}
-          <div className="lg:col-span-5 min-h-[400px] lg:min-h-0 rounded-2xl border border-neutral-900 bg-[#0F3460]/25 overflow-hidden shadow-[inset_0_0_20px_rgba(0,0,0,0.5)] relative isolate z-0 flex flex-col justify-stretch">
-            <div className="absolute top-4 left-4 z-20 flex items-center gap-1.5 px-2.5 py-1 rounded bg-[#1A1A2E]/80 border border-neutral-800 text-[10px] font-mono text-text-light/50">
-              <span className="w-1.5 h-1.5 rounded-full bg-electric-amber animate-pulse" />
-              3D CIRCUIT BOARD SIMULATION
-            </div>
-            <div className="w-full h-full min-h-[400px] lg:h-auto flex-grow relative">
-              <PcbScene hoveredService={hoveredService} onHoverService={onHoverService} />
-            </div>
-          </div>
+        {/* Cards Grid */}
+        <div className="services-grid">
+          {servicesData.map((service, index) => {
+            const IconComponent = service.icon;
 
-          {/* Right Column: HTML Cards Grid (2 columns on desktop/tablet) */}
-          <div className="lg:col-span-7">
-            <motion.div 
-              variants={gridVariants}
-              initial="hidden"
-              animate={isInView ? "visible" : "hidden"}
-              className="grid grid-cols-1 md:grid-cols-2 gap-6 w-full h-full"
-            >
-              {servicesData.map((service, index) => {
-                const IconComponent = service.icon;
-                const isHovered = hoveredService === index;
+            return (
+              <div
+                key={index}
+                className="service-card"
+                style={{
+                  borderColor: hoveredService === index ? 'rgba(245, 158, 11, 0.5)' : 'var(--border-dark)'
+                }}
+                onMouseEnter={() => onHoverService(index)}
+                onMouseLeave={() => onHoverService(null)}
+              >
+                {/* Service Icon */}
+                <div className="flex items-center gap-2 mb-3" style={{ color: 'var(--accent)' }}>
+                  <IconComponent className="w-6 h-6" />
+                </div>
 
-                return (
-                  <motion.div
-                    key={index}
-                    variants={cardVariants}
-                    className="group cursor-pointer"
-                    onMouseEnter={() => onHoverService(index)}
-                    onMouseLeave={() => onHoverService(null)}
-                  >
-                    <div 
-                      className={`h-full p-6 rounded-2xl glass-panel border transition-all duration-500 flex flex-col justify-between hover:-translate-y-1.5 relative overflow-hidden ${
-                        isHovered 
-                          ? "border-electric-amber shadow-[0_0_30px_rgba(245,166,35,0.25)] bg-[#0F3460]/90" 
-                          : "border-neutral-900 bg-[#0F3460]/30 hover:border-neutral-800"
-                      }`}
-                    >
-                      {/* Subtle color highlight circle on active hover */}
-                      <div className={`absolute -top-16 -right-16 w-36 h-36 rounded-full bg-gradient-to-br ${service.color} blur-2xl group-hover:scale-125 transition-transform duration-700`} />
-                      
-                      <div>
-                        {/* Glowing Icon Container */}
-                        <div className={`w-11 h-11 rounded-xl bg-substation-dark border border-neutral-800/80 flex items-center justify-center mb-5 group-hover:border-electric-amber/30 transition-all duration-300 ${
-                          isHovered ? "border-electric-amber/60 shadow-[0_0_15px_rgba(245,166,35,0.15)]" : ""
-                        }`}>
-                          <IconComponent className={`w-5 h-5 ${service.iconColor} filter drop-shadow-[0_0_3px_currentColor]`} />
-                        </div>
+                {/* Gold Accent */}
+                <div style={{ width: '40px', height: '3px', background: 'var(--accent)', marginBottom: '1.2rem' }} />
 
-                        <h3 className="font-orbitron font-extrabold text-base text-text-light group-hover:text-electric-amber transition-colors duration-300 mb-2 flex items-center gap-2">
-                          {service.title}
-                          {isHovered && (
-                            <span className="w-1.5 h-1.5 rounded-full bg-success-live animate-ping" />
-                          )}
-                        </h3>
+                {/* Card Title */}
+                <h3 
+                  style={{
+                    fontFamily: "'Playfair Display', serif",
+                    color: 'var(--dark-text)',
+                    fontSize: '1.1rem',
+                    fontWeight: 700,
+                    marginBottom: '0.75rem'
+                  }}
+                >
+                  {service.title}
+                </h3>
 
-                        <p className="font-inter text-xs md:text-sm text-text-light/60 group-hover:text-text-light/80 transition-colors leading-relaxed mb-5">
-                          {service.desc}
-                        </p>
-                      </div>
-
-                      <div className="font-orbitron text-[10px] font-bold tracking-widest text-arc-cyan group-hover:text-electric-amber transition-colors duration-300 flex items-center gap-1 mt-auto">
-                        LEARN DETAILS <ArrowRight className="w-3 h-3 group-hover:translate-x-1 transition-transform" />
-                      </div>
-                    </div>
-                  </motion.div>
-                );
-              })}
-            </motion.div>
-          </div>
-
+                {/* Card Description */}
+                <p 
+                  style={{
+                    fontFamily: "'Source Sans 3', sans-serif",
+                    color: 'var(--dark-muted)',
+                    lineHeight: 1.7,
+                    fontSize: '0.95rem'
+                  }}
+                >
+                  {service.desc}
+                </p>
+              </div>
+            );
+          })}
         </div>
       </div>
     </section>
