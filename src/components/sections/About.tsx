@@ -34,9 +34,17 @@ export const About: React.FC = () => {
     }
   ];
 
+  const statsData = [
+    { num: "37+", label: "Years" },
+    { num: "62+", label: "Engineers" },
+    { num: "10K+", label: "Joints" },
+    { num: "5+", label: "Substations" }
+  ];
+
   return (
     <section 
       id="about" 
+      style={{ background: '#f8f6f1' }}
       className="sec-light sec-pad"
     >
       <style>{`
@@ -44,18 +52,18 @@ export const About: React.FC = () => {
           display: grid;
           grid-template-columns: 1fr 1fr;
           gap: 4rem;
-          align-items: center;
+          align-items: start;
         }
         @media (max-width: 768px) {
           .about-grid {
             grid-template-columns: 1fr;
-            gap: 2rem;
+            gap: 3rem;
           }
         }
       `}</style>
 
       <div className="max-w-7xl mx-auto about-grid">
-        {/* Left Column: Story & Heading */}
+        {/* Left Column: Story, Heading & Stats Grid */}
         <div>
           <h2 className="sec-title">
             Empowering <span>Maharashtra</span> Since 1987
@@ -71,59 +79,142 @@ export const About: React.FC = () => {
           >
             From humble beginnings to building Maharashtra's critical power infrastructure, our journey is defined by engineering precision and electrical reliability.
           </p>
+
+          {/* 2x2 Stats Grid */}
+          <div className="grid grid-cols-2 gap-4 mt-8">
+            {statsData.map((stat, idx) => (
+              <div 
+                key={idx} 
+                style={{ 
+                  background: 'var(--light-bg-2)', 
+                  border: '1px solid var(--border-light)', 
+                  borderRadius: 'var(--radius)', 
+                  padding: '1.25rem', 
+                  display: 'flex', 
+                  flexDirection: 'column', 
+                  gap: '0.25rem',
+                  boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03)'
+                }}
+              >
+                <span 
+                  style={{ 
+                    fontFamily: "'Playfair Display', serif", 
+                    fontSize: '2.2rem', 
+                    fontWeight: 700, 
+                    color: 'var(--accent)',
+                    lineHeight: 1
+                  }}
+                >
+                  {stat.num}
+                </span>
+                <span 
+                  style={{ 
+                    fontFamily: "'Source Sans 3', sans-serif",
+                    fontSize: '0.8rem', 
+                    color: 'var(--light-muted)', 
+                    textTransform: 'uppercase', 
+                    letterSpacing: '0.08em', 
+                    fontWeight: 600 
+                  }}
+                >
+                  {stat.label}
+                </span>
+              </div>
+            ))}
+          </div>
         </div>
 
-        {/* Right Column: Timeline / Stat Boxes */}
-        <div className="flex flex-col gap-6">
-          {timelineData.map((milestone, index) => (
-            <div 
-              key={index}
-              style={{
-                background: 'var(--light-bg-2)',
-                border: '1px solid var(--border-light)',
-                borderRadius: 'var(--radius)',
-                padding: '1.5rem',
-                textAlign: 'center'
-              }}
-            >
-              {/* Number: Year */}
+        {/* Right Column: Proper Vertical Timeline */}
+        <div style={{ position: 'relative', paddingLeft: '2.5rem' }}>
+          {/* Vertical Timeline Guide Line */}
+          <div 
+            style={{ 
+              position: 'absolute', 
+              left: '10px', 
+              top: '12px', 
+              bottom: '12px', 
+              width: '2px', 
+              background: 'var(--border-light)' 
+            }} 
+          />
+
+          <div className="flex flex-col gap-8">
+            {timelineData.map((milestone, index) => (
               <div 
-                style={{ 
-                  fontFamily: "'Playfair Display', serif", 
-                  fontSize: '2.2rem', 
-                  color: 'var(--accent)',
-                  fontWeight: 700
-                }}
+                key={index}
+                style={{ position: 'relative' }}
               >
-                {milestone.year}
+                {/* Dot marker */}
+                <div 
+                  style={{ 
+                    position: 'absolute', 
+                    left: '-35px', 
+                    top: '8px', 
+                    width: '12px', 
+                    height: '12px', 
+                    borderRadius: '50%', 
+                    background: 'var(--accent)', 
+                    border: '2px solid #f8f6f1',
+                    zIndex: 2
+                  }} 
+                />
+
+                {/* Year */}
+                <div 
+                  style={{ 
+                    fontFamily: "'Playfair Display', serif", 
+                    fontSize: '1.4rem', 
+                    color: 'var(--accent)',
+                    fontWeight: 700,
+                    lineHeight: '1.2'
+                  }}
+                >
+                  {milestone.year}
+                </div>
+
+                {/* Header (Title & Badge) */}
+                <div className="flex flex-wrap items-center gap-2 mt-1 mb-2">
+                  <span 
+                    style={{ 
+                      fontFamily: "'Source Sans 3', sans-serif",
+                      fontSize: '1.1rem', 
+                      fontWeight: 700, 
+                      color: 'var(--light-text)' 
+                    }}
+                  >
+                    {milestone.title}
+                  </span>
+                  <span 
+                    style={{ 
+                      fontSize: '0.7rem', 
+                      textTransform: 'uppercase', 
+                      letterSpacing: '0.05em', 
+                      color: 'var(--light-muted)', 
+                      background: 'var(--light-bg-2)', 
+                      border: '1px solid var(--border-light)', 
+                      padding: '2px 8px', 
+                      borderRadius: '20px', 
+                      fontWeight: 600 
+                    }}
+                  >
+                    {milestone.badge}
+                  </span>
+                </div>
+
+                {/* Description */}
+                <p 
+                  style={{ 
+                    fontFamily: "'Source Sans 3', sans-serif", 
+                    fontSize: '0.92rem', 
+                    lineHeight: '1.6', 
+                    color: 'var(--light-muted)' 
+                  }}
+                >
+                  {milestone.desc}
+                </p>
               </div>
-              {/* Label: Title / Badge */}
-              <div 
-                style={{ 
-                  fontSize: '0.8rem', 
-                  textTransform: 'uppercase', 
-                  letterSpacing: '0.08em', 
-                  color: 'var(--light-muted)',
-                  fontWeight: 600,
-                  marginTop: '0.25rem',
-                  marginBottom: '0.75rem'
-                }}
-              >
-                {milestone.title} &bull; {milestone.badge}
-              </div>
-              {/* Description */}
-              <p 
-                style={{ 
-                  fontFamily: "'Source Sans 3', sans-serif", 
-                  fontSize: '0.95rem', 
-                  lineHeight: '1.6', 
-                  color: 'var(--light-muted)' 
-                }}
-              >
-                {milestone.desc}
-              </p>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
       </div>
     </section>
