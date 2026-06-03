@@ -193,7 +193,7 @@ body {
 }
 
 /* Hide canvas defaults */
-canvas {
+canvas.cursor-trail-canvas {
   display: block;
   user-select: none;
 }
