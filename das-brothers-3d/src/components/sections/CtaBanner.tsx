@@ -26,7 +26,7 @@ export const CtaBanner: React.FC = () => {
   return (
     <section 
       id="contact" 
-      className="relative py-24 px-6 md:px-12 lg:px-24 overflow-hidden z-10 border-t border-neutral-900/60 bg-[#1A1A2E]/80"
+      className="relative py-24 px-6 md:px-12 lg:px-24 overflow-hidden z-10 border-t border-neutral-800 bg-neutral-900"
     >
       {/* Background graphic */}
       <div className="absolute top-[50%] left-[50%] -translate-x-1/2 -translate-y-1/2 w-[60%] h-[60%] rounded-full bg-electric-amber/5 blur-[160px] -z-20 pointer-events-none" />
@@ -91,7 +91,7 @@ export const CtaBanner: React.FC = () => {
           </div>
 
           {/* Right Side: Interactive Quote Request Form */}
-          <div className="lg:col-span-7 p-8 rounded-2xl border border-neutral-900 bg-[#0F3460]/15 shadow-[0_10px_30px_rgba(0,0,0,0.3)] relative overflow-hidden">
+          <div className="lg:col-span-7 p-8 rounded-2xl border border-neutral-800 bg-white shadow-sm relative overflow-hidden">
             
             {/* Visual Grid Indicators */}
             <div className="absolute top-2 left-2 w-1.5 h-1.5 border-t border-l border-neutral-800" />
@@ -113,7 +113,7 @@ export const CtaBanner: React.FC = () => {
                     value={formState.name}
                     onChange={(e) => setFormState({ ...formState, name: e.target.value })}
                     placeholder="Enter name"
-                    className="px-4 py-3 rounded-xl border border-neutral-800 bg-substation-dark/40 text-sm font-inter text-text-light focus:outline-none focus:border-electric-amber transition-colors"
+                    className="px-4 py-3 rounded-xl border border-neutral-800 bg-white text-sm font-inter text-text-light focus:outline-none focus:border-arc-cyan transition-colors"
                   />
                 </div>
 
@@ -128,7 +128,7 @@ export const CtaBanner: React.FC = () => {
                     value={formState.email}
                     onChange={(e) => setFormState({ ...formState, email: e.target.value })}
                     placeholder="Enter email"
-                    className="px-4 py-3 rounded-xl border border-neutral-800 bg-substation-dark/40 text-sm font-inter text-text-light focus:outline-none focus:border-[#00D4FF] transition-colors"
+                    className="px-4 py-3 rounded-xl border border-neutral-800 bg-white text-sm font-inter text-text-light focus:outline-none focus:border-arc-cyan transition-colors"
                   />
                 </div>
               </div>
@@ -141,7 +141,7 @@ export const CtaBanner: React.FC = () => {
                 <select 
                   value={formState.projectType}
                   onChange={(e) => setFormState({ ...formState, projectType: e.target.value })}
-                  className="px-4 py-3 rounded-xl border border-neutral-800 bg-substation-dark/40 text-sm font-inter text-text-light focus:outline-none focus:border-electric-amber transition-colors appearance-none cursor-pointer"
+                  className="px-4 py-3 rounded-xl border border-neutral-800 bg-white text-sm font-inter text-text-light focus:outline-none focus:border-arc-cyan transition-colors appearance-none cursor-pointer"
                 >
                   <option value="Substation">Substation Construction (11k/33kV)</option>
                   <option value="Cabling">Underground HT/LT Cabling</option>
@@ -161,7 +161,7 @@ export const CtaBanner: React.FC = () => {
                   value={formState.message}
                   onChange={(e) => setFormState({ ...formState, message: e.target.value })}
                   placeholder="Describe your project scope..."
-                  className="px-4 py-3 rounded-xl border border-neutral-800 bg-substation-dark/40 text-sm font-inter text-text-light focus:outline-none focus:border-electric-amber transition-colors resize-none"
+                  className="px-4 py-3 rounded-xl border border-neutral-800 bg-white text-sm font-inter text-text-light focus:outline-none focus:border-arc-cyan transition-colors resize-none"
                 />
               </div>
 
@@ -169,7 +169,7 @@ export const CtaBanner: React.FC = () => {
               <button 
                 type="submit"
                 disabled={submitted}
-                className="w-full py-4 rounded-xl font-orbitron text-xs md:text-sm font-bold tracking-widest text-deep-grid-navy bg-electric-amber hover:bg-electric-amber-dark flex items-center justify-center gap-3 transition-all duration-300 shadow-[0_0_15px_rgba(245,166,35,0.2)]"
+                className="w-full py-4 rounded-xl font-orbitron text-xs md:text-sm font-bold tracking-widest text-white bg-arc-cyan hover:bg-arc-cyan/90 flex items-center justify-center gap-3 transition-all duration-300 shadow-sm"
               >
                 {submitted ? (
                   <>

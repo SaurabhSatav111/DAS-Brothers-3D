@@ -17,7 +17,7 @@ export const TrustBar: React.FC = () => {
   const marqueeItems = [...trustItems, ...trustItems];
 
   return (
-    <div className="relative py-6 bg-[#080b15] border-t border-b border-neutral-900 overflow-hidden z-10">
+    <div className="relative py-6 bg-neutral-900 border-t border-b border-neutral-800 overflow-hidden z-10">
       {/* Glow highlight */}
       <div className="absolute inset-0 bg-gradient-to-r from-transparent via-[#F5A623]/5 to-transparent pointer-events-none" />
 

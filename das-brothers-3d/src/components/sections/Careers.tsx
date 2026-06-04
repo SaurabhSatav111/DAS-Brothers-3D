@@ -83,19 +83,9 @@ export const Careers: React.FC = () => {
                 transition={{ duration: 0.8, delay: index * 0.15, ease: "easeOut" }}
                 className="h-full"
               >
-                {/* Anti-Gravity Floating Wrapper */}
-                <motion.div
-                  animate={{
-                    y: [0, -16, 0],
-                    rotate: [-0.8, 0.8, -0.8]
-                  }}
-                  transition={{
-                    duration: path.duration,
-                    repeat: Infinity,
-                    ease: "easeInOut",
-                    delay: path.delay
-                  }}
-                  className="h-full p-8 rounded-2xl border border-neutral-900 bg-[#0F3460]/25 flex flex-col justify-between hover:border-electric-amber/30 transition-all duration-300 hover:shadow-[0_10px_30px_rgba(232,119,34,0.05)] relative overflow-hidden group"
+                {/* Stable Card Wrapper */}
+                <div
+                  className="h-full p-8 rounded-2xl border border-neutral-900 bg-[#0F3460]/25 flex flex-col justify-between hover:border-electric-amber/30 transition-all duration-300 hover:shadow-[0_4px_25px_rgba(245,166,35,0.05)] relative overflow-hidden group"
                 >
                   {/* Glowing background badge */}
                   <div className="absolute top-0 right-0 w-24 h-24 rounded-full bg-gradient-to-br from-white/[0.02] to-transparent blur-md pointer-events-none" />
@@ -147,7 +137,7 @@ export const Careers: React.FC = () => {
                   >
                     APPLY NOW <ArrowRight className="w-3.5 h-3.5" />
                   </a>
-                </motion.div>
+                </div>
               </motion.div>
             );
           })}

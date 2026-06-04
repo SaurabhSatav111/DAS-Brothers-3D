@@ -36,7 +36,7 @@ export const Navbar: React.FC = () => {
         transition={{ duration: 0.8, delay: 0.5, ease: [0.16, 1, 0.3, 1] }}
         className={`fixed top-0 left-0 w-full z-40 transition-all duration-500 border-b ${
           scrolled 
-            ? "glass-panel py-3 shadow-[0_4px_30px_rgba(0,0,0,0.4)] border-neutral-900/60" 
+            ? "glass-panel py-3 shadow-sm border-neutral-800" 
             : "bg-transparent py-5 border-transparent"
         }`}
       >
@@ -69,7 +69,7 @@ export const Navbar: React.FC = () => {
               >
                 {link.name}
                 {/* Electric hover sweep line */}
-                <span className="absolute bottom-0 left-0 w-full h-[2px] bg-gradient-to-r from-electric-amber to-arc-cyan origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-300 ease-out shadow-[0_0_8px_rgba(0,212,255,0.5)]" />
+                <span className="absolute bottom-0 left-0 w-full h-[2px] bg-gradient-to-r from-electric-amber to-arc-cyan origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-300 ease-out" />
               </a>
             ))}
           </div>
@@ -78,11 +78,8 @@ export const Navbar: React.FC = () => {
           <div className="flex items-center gap-4">
             <a 
               href="#contact"
-              className="relative hidden sm:inline-flex items-center justify-center px-5 py-2.5 rounded-xl font-orbitron text-xs font-bold tracking-wider text-deep-grid-navy bg-electric-amber hover:bg-electric-amber-dark transition-all duration-300 overflow-hidden group shadow-[0_0_15px_rgba(245,166,35,0.3)] hover:shadow-[0_0_25px_rgba(245,166,35,0.6)]"
+              className="relative hidden sm:inline-flex items-center justify-center px-5 py-2.5 rounded-xl font-orbitron text-xs font-bold tracking-wider text-white bg-arc-cyan hover:bg-arc-cyan/90 transition-all duration-300 overflow-hidden group shadow-sm"
             >
-              {/* Electric pulse rings behind button */}
-              <span className="absolute inset-0 w-full h-full rounded-xl border border-electric-amber animate-pulse-ring" />
-              
               <span className="relative z-10 flex items-center gap-2">
                 GET A QUOTE <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
               </span>
@@ -90,7 +87,7 @@ export const Navbar: React.FC = () => {
 
             <button
               onClick={() => setIsOpen(!isOpen)}
-              className="lg:hidden flex items-center justify-center w-10 h-10 rounded-xl border border-neutral-800 hover:border-electric-amber/50 hover:bg-[#0F3460]/50 text-text-light transition-all duration-300"
+              className="lg:hidden flex items-center justify-center w-10 h-10 rounded-xl border border-neutral-800 hover:border-electric-amber/50 hover:bg-neutral-900 text-text-light transition-all duration-300"
             >
               {isOpen ? <X className="w-5 h-5 text-electric-amber" /> : <Menu className="w-5 h-5" />}
             </button>

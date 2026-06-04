@@ -45,10 +45,9 @@ const CountUpValue: React.FC<{ value: string; startCount: boolean }> = ({ value,
   return <span>{displayValue}</span>;
 };
 
-// Sub-component for individual Oscilloscope Canvas Waveform
+// Sub-component for individual Oscilloscope Canvas Waveform (Static representation for extreme high performance)
 const Oscilloscope: React.FC<{ color: string; speedMultiplier: number; heightMultiplier: number }> = ({ 
   color, 
-  speedMultiplier,
   heightMultiplier
 }) => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
@@ -59,79 +58,55 @@ const Oscilloscope: React.FC<{ color: string; speedMultiplier: number; heightMul
     const ctx = canvas.getContext("2d");
     if (!ctx) return;
 
-    let animationId: number;
-    let width = (canvas.width = canvas.offsetWidth || 200);
+    const width = (canvas.width = canvas.offsetWidth || 200);
     const height = (canvas.height = canvas.offsetHeight || 80);
 
-    const handleResize = () => {
-      if (!canvas) return;
-      width = canvas.width = canvas.offsetWidth;
-    };
-    window.addEventListener("resize", handleResize);
-
-    let offset = 0;
-
-    const render = () => {
-      ctx.clearRect(0, 0, width, height);
-      
-      // Draw grid lines
-      ctx.strokeStyle = "rgba(255, 255, 255, 0.04)";
-      ctx.lineWidth = 0.5;
-      const gridSize = 15;
-      
-      for (let x = 0; x < width; x += gridSize) {
-        ctx.beginPath();
-        ctx.moveTo(x, 0);
-        ctx.lineTo(x, height);
-        ctx.stroke();
-      }
-      for (let y = 0; y < height; y += gridSize) {
-        ctx.beginPath();
-        ctx.moveTo(0, y);
-        ctx.lineTo(width, y);
-        ctx.stroke();
-      }
-
-      // Draw horizontal center reference line
-      ctx.strokeStyle = "rgba(255, 255, 255, 0.1)";
+    ctx.clearRect(0, 0, width, height);
+    
+    // Draw grid lines
+    ctx.strokeStyle = "rgba(255, 255, 255, 0.04)";
+    ctx.lineWidth = 0.5;
+    const gridSize = 15;
+    
+    for (let x = 0; x < width; x += gridSize) {
       ctx.beginPath();
-      ctx.moveTo(0, height / 2);
-      ctx.lineTo(width, height / 2);
+      ctx.moveTo(x, 0);
+      ctx.lineTo(x, height);
       ctx.stroke();
-
-      // Draw active sine waveform
-      ctx.strokeStyle = color;
-      ctx.lineWidth = 1.5;
-      ctx.shadowColor = color;
-      ctx.shadowBlur = 6;
-      
+    }
+    for (let y = 0; y < height; y += gridSize) {
       ctx.beginPath();
-      for (let x = 0; x < width; x++) {
-        // Calculate y coordinate based on composite sine waves
-        const y = height / 2 + 
-          Math.sin(x * 0.03 + offset * speedMultiplier) * (18 * heightMultiplier) +
-          Math.cos(x * 0.015 - offset * speedMultiplier * 0.5) * (6 * heightMultiplier);
-          
-        if (x === 0) {
-          ctx.moveTo(x, y);
-        } else {
-          ctx.lineTo(x, y);
-        }
-      }
+      ctx.moveTo(0, y);
+      ctx.lineTo(width, y);
       ctx.stroke();
-      ctx.shadowBlur = 0; // reset
+    }
 
-      offset += 0.08;
-      animationId = requestAnimationFrame(render);
-    };
+    // Draw horizontal center reference line
+    ctx.strokeStyle = "rgba(255, 255, 255, 0.1)";
+    ctx.beginPath();
+    ctx.moveTo(0, height / 2);
+    ctx.lineTo(width, height / 2);
+    ctx.stroke();
 
-    render();
-
-    return () => {
-      cancelAnimationFrame(animationId);
-      window.removeEventListener("resize", handleResize);
-    };
-  }, [color, speedMultiplier, heightMultiplier]);
+    // Draw static sine waveform
+    ctx.strokeStyle = color;
+    ctx.lineWidth = 1.5;
+    
+    ctx.beginPath();
+    const fixedOffset = 1.5; // Keep it fixed for professional, stable look
+    for (let x = 0; x < width; x++) {
+      const y = height / 2 + 
+        Math.sin(x * 0.03 + fixedOffset) * (18 * heightMultiplier) +
+        Math.cos(x * 0.015 - fixedOffset * 0.5) * (6 * heightMultiplier);
+        
+      if (x === 0) {
+        ctx.moveTo(x, y);
+      } else {
+        ctx.lineTo(x, y);
+      }
+    }
+    ctx.stroke();
+  }, [color, heightMultiplier]);
 
   return <canvas ref={canvasRef} className="absolute inset-0 w-full h-full opacity-35" />;
 };

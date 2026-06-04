@@ -1,9 +1,7 @@
 import { useState } from "react";
 import OpeningSequence from "./components/ui/OpeningSequence";
-import CursorTrail from "./components/ui/CursorTrail";
 import Navbar from "./components/Navbar";
 import Hero from "./components/sections/Hero";
-import TowerScene from "./components/3d/TowerScene";
 import TrustBar from "./components/sections/TrustBar";
 import Services from "./components/sections/Services";
 import About from "./components/sections/About";
@@ -29,17 +27,11 @@ function App() {
       ) : (
         <div className="relative min-h-screen text-text-light selection:bg-electric-amber selection:text-deep-grid-navy overflow-x-hidden">
           
-          {/* 1. Interactive 2D Lightning Cursor Trail */}
-          <CursorTrail />
-
           {/* 2. Glassmorphism Header Navbar */}
           <Navbar />
 
-          {/* 3. Hero Section (Wrapping background 3D Tower Canvas) */}
-          <div className="relative w-full overflow-hidden isolate z-0">
-            <TowerScene />
-            <Hero />
-          </div>
+          {/* 3. Hero Section */}
+          <Hero />
 
           {/* 4. Horizontal Auto-scroll Trust Bar */}
           <TrustBar />

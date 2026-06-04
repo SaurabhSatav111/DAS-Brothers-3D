@@ -1,7 +1,7 @@
 import React, { useRef } from "react";
 import { motion, useInView } from "framer-motion";
 import { Compass, Network, Cable, Cpu, AlertTriangle, ShieldCheck, ArrowRight } from "lucide-react";
-import PcbScene from "../3d/PcbScene";
+import electricalPanel from "../../assets/electrical_panel.png";
 
 interface ServicesProps {
   hoveredService: number | null;
@@ -116,22 +116,23 @@ export const Services: React.FC<ServicesProps> = ({ hoveredService, onHoverServi
             transition={{ duration: 0.6, delay: 0.2 }}
             className="font-inter text-text-light/60 text-sm md:text-base leading-relaxed"
           >
-            Hover on cards or interact with the 3D Circuit Board to inspect our high-voltage electrical grid capabilities.
+            Hover on cards to inspect our high-voltage electrical grid capabilities.
           </motion.p>
         </div>
 
         {/* Split Layout: 3D PCB Left | Service Cards Right */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-stretch">
           
-          {/* Left Column: 3D Circuit Board Canvas */}
-          <div className="lg:col-span-5 min-h-[400px] lg:min-h-0 rounded-2xl border border-neutral-900 bg-[#0F3460]/25 overflow-hidden shadow-[inset_0_0_20px_rgba(0,0,0,0.5)] relative isolate z-0 flex flex-col justify-stretch">
+          {/* Left Column: Industrial Electrical Panel Static Image */}
+          <div className="lg:col-span-5 min-h-[400px] lg:min-h-0 rounded-2xl border border-neutral-900 bg-[#0F3460]/10 overflow-hidden relative isolate z-0 flex flex-col justify-stretch">
             <div className="absolute top-4 left-4 z-20 flex items-center gap-1.5 px-2.5 py-1 rounded bg-[#1A1A2E]/80 border border-neutral-800 text-[10px] font-mono text-text-light/50">
-              <span className="w-1.5 h-1.5 rounded-full bg-electric-amber animate-pulse" />
-              3D CIRCUIT BOARD SIMULATION
+              <span className="w-1.5 h-1.5 rounded-full bg-electric-amber" />
+              POWER INFRASTRUCTURE
             </div>
-            <div className="w-full h-full min-h-[400px] lg:h-auto flex-grow relative">
-              <PcbScene hoveredService={hoveredService} onHoverService={onHoverService} />
-            </div>
+            <div 
+              className="w-full h-full min-h-[400px] lg:h-auto flex-grow bg-cover bg-center"
+              style={{ backgroundImage: `url(${electricalPanel})` }}
+            />
           </div>
 
           {/* Right Column: HTML Cards Grid (2 columns on desktop/tablet) */}
@@ -155,9 +156,9 @@ export const Services: React.FC<ServicesProps> = ({ hoveredService, onHoverServi
                     onMouseLeave={() => onHoverService(null)}
                   >
                     <div 
-                      className={`h-full p-6 rounded-2xl glass-panel border transition-all duration-500 flex flex-col justify-between hover:-translate-y-1.5 relative overflow-hidden ${
+                      className={`h-full p-6 rounded-2xl glass-panel border transition-all duration-300 flex flex-col justify-between relative overflow-hidden ${
                         isHovered 
-                          ? "border-electric-amber shadow-[0_0_30px_rgba(245,166,35,0.25)] bg-[#0F3460]/90" 
+                          ? "border-electric-amber/80 bg-[#0F3460]/90" 
                           : "border-neutral-900 bg-[#0F3460]/30 hover:border-neutral-800"
                       }`}
                     >

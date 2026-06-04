@@ -5,17 +5,7 @@ import { Star, ChevronLeft, ChevronRight, Quote } from "lucide-react";
 export const Testimonials: React.FC = () => {
   const [activeIndex, setActiveIndex] = useState(0);
   const [progress, setProgress] = useState(0);
-  const [isMobile, setIsMobile] = useState(false);
   const timerRef = useRef<any>(null);
-
-  useEffect(() => {
-    const handleResize = () => {
-      setIsMobile(window.innerWidth < 768);
-    };
-    handleResize();
-    window.addEventListener("resize", handleResize);
-    return () => window.removeEventListener("resize", handleResize);
-  }, []);
 
   const reviews = [
     {
@@ -98,8 +88,8 @@ export const Testimonials: React.FC = () => {
           </p>
         </div>
 
-        {/* 3D Perspective Carousel Container */}
-        <div className="relative w-full max-w-4xl h-[380px] md:h-[320px] flex items-center justify-center [perspective:1000px] overflow-hidden select-none">
+        {/* Clean Flat Slider Container */}
+        <div className="relative w-full max-w-4xl h-[340px] md:h-[280px] flex items-center justify-center overflow-hidden select-none">
           
           <div className="relative w-full max-w-lg h-full flex items-center justify-center">
             {reviews.map((review, idx) => {
@@ -116,32 +106,27 @@ export const Testimonials: React.FC = () => {
 
               if (!isVisible) return null;
 
-              // Compute 3D translation settings
-              const rotateY = isActive ? 0 : isPrev ? 30 : -30;
-              const translateX = isActive ? 0 : isPrev ? (isMobile ? -80 : -220) : (isMobile ? 80 : 220);
-              const translateZ = isActive ? 0 : (isMobile ? -120 : -150);
-              const scale = isActive ? 1.0 : (isMobile ? 0.72 : 0.82);
-              const opacity = isActive ? 1.0 : (isMobile ? 0.15 : 0.45);
-              const zIndex = isActive ? 10 : 5;
+              // Compute Flat translation settings
+              const translateX = isActive ? 0 : isPrev ? -400 : 400;
+              const scale = isActive ? 1.0 : 0.9;
+              const opacity = isActive ? 1.0 : 0.0;
+              const zIndex = isActive ? 10 : 0;
 
               return (
                 <motion.div
                   key={idx}
                   style={{
-                    transformStyle: "preserve-3d",
                     zIndex
                   }}
                   animate={{
                     x: translateX,
-                    z: translateZ,
-                    rotateY,
                     scale,
                     opacity
                   }}
-                  transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] as const }}
-                  className={`absolute w-full max-w-sm md:max-w-md h-[250px] p-6 md:p-8 rounded-2xl border glass-panel flex flex-col justify-between cursor-pointer ${
+                  transition={{ duration: 0.5, ease: "easeInOut" }}
+                  className={`absolute w-full max-w-sm md:max-w-md h-[220px] p-6 md:p-8 rounded-2xl border glass-panel flex flex-col justify-between cursor-pointer ${
                     isActive 
-                      ? "border-electric-amber bg-[#0F3460]/70 shadow-[0_10px_40px_rgba(0,0,0,0.5)]" 
+                      ? "border-electric-amber bg-[#0F3460]/75 shadow-lg" 
                       : "border-neutral-900 bg-[#0F3460]/25 hover:border-neutral-800"
                   }`}
                   onClick={() => {
@@ -150,7 +135,7 @@ export const Testimonials: React.FC = () => {
                   }}
                 >
                   {/* Quote decoration */}
-                  <Quote className="absolute top-4 right-4 w-12 h-12 text-[#E87722]/10 pointer-events-none" />
+                  <Quote className="absolute top-4 right-4 w-12 h-12 text-[#E87722]/5 pointer-events-none" />
 
                   {/* Body quote */}
                   <p className="font-inter text-xs md:text-sm text-text-light/80 italic leading-relaxed">
@@ -169,7 +154,7 @@ export const Testimonials: React.FC = () => {
                     {/* Star Rating list */}
                     <div className="flex items-center gap-1 mt-2">
                       {[...Array(review.rating)].map((_, starIdx) => (
-                        <Star key={starIdx} className="w-3.5 h-3.5 fill-[#E87722] text-[#E87722] filter drop-shadow-[0_0_2px_#E87722]" />
+                        <Star key={starIdx} className="w-3.5 h-3.5 fill-[#E87722] text-[#E87722]" />
                       ))}
                     </div>
                   </div>

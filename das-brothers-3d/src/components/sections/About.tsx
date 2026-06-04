@@ -1,7 +1,7 @@
 import React, { useRef } from "react";
 import { motion, useInView } from "framer-motion";
-import { SubstationScene } from "../3d/SubstationScene";
 import { Calendar, Briefcase, Award, TrendingUp } from "lucide-react";
+import substationMaintenance from "../../assets/substation_maintenance.png";
 
 export const About: React.FC = () => {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -112,28 +112,31 @@ export const About: React.FC = () => {
         {/* Two Column Layout (Substation Sticky Left | Timeline Scroll Right) */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
           
-          {/* Left Column: STICKY 3D Canvas Substation Scene */}
-          <div className="lg:col-span-5 lg:sticky lg:top-24 h-[350px] lg:h-[500px] rounded-2xl border border-neutral-900 bg-[#0F3460]/25 overflow-hidden shadow-[inset_0_0_20px_rgba(0,0,0,0.5)] group relative isolate z-0">
+          {/* Left Column: Static Substation Engineering Photo */}
+          <div className="lg:col-span-5 lg:sticky lg:top-24 h-[350px] lg:h-[500px] rounded-2xl border border-neutral-900 bg-[#0F3460]/10 overflow-hidden group relative isolate z-0">
             
-            {/* Live Indicator Overlays */}
+            {/* Overlays */}
             <div className="absolute top-4 left-4 z-20 flex items-center gap-1.5 px-2.5 py-1 rounded bg-[#1A1A2E]/80 border border-neutral-800 text-[10px] font-mono text-text-light/60">
-              <span className="w-1.5 h-1.5 rounded-full bg-arc-cyan animate-pulse" />
-              CAMERA: AUTOROTATE ACTIVE
+              <span className="w-1.5 h-1.5 rounded-full bg-arc-cyan" />
+              ENGINEERING STANDARDS
             </div>
             
             <div className="absolute bottom-4 right-4 z-20 flex items-center gap-1.5 px-2.5 py-1 rounded bg-[#1A1A2E]/80 border border-neutral-800 text-[10px] font-mono text-electric-amber">
-              3D SUBSTATION DIAGRAM
+              SUBSTATION MAINTENANCE
             </div>
 
-            {/* Render 3D Substation Model */}
-            <SubstationScene />
+            {/* Render static image */}
+            <div 
+              className="w-full h-full bg-cover bg-center"
+              style={{ backgroundImage: `url(${substationMaintenance})` }}
+            />
           </div>
 
           {/* Right Column: Historical Vertical Timeline */}
           <div className="lg:col-span-7 relative">
             
             {/* Vertical Timeline Guide Line */}
-            <div className="absolute left-4 top-2 bottom-2 w-[2px] bg-gradient-to-b from-electric-amber via-arc-cyan to-[#0F3460] shadow-[0_0_8px_rgba(0,212,255,0.2)]" />
+            <div className="absolute left-4 top-2 bottom-2 w-[2px] bg-gradient-to-b from-arc-cyan via-arc-cyan to-arc-cyan/20" />
 
             {/* Timeline Cards */}
             <div className="flex flex-col gap-12">
@@ -150,18 +153,18 @@ export const About: React.FC = () => {
                     className="relative pl-10 md:pl-12 group"
                   >
                     {/* Node Pointer Bullet Dot */}
-                    <div className="absolute left-[3px] top-1.5 w-6 h-6 rounded-full bg-substation-dark border-2 border-electric-amber flex items-center justify-center z-15 shadow-[0_0_10px_rgba(245,166,35,0.4)] group-hover:border-arc-cyan transition-colors duration-300">
-                      <div className="w-2.5 h-2.5 rounded-full bg-electric-amber group-hover:bg-arc-cyan animate-pulse-glow" />
+                    <div className="absolute left-[3px] top-1.5 w-6 h-6 rounded-full bg-white border-2 border-arc-cyan flex items-center justify-center z-10 transition-colors duration-300">
+                      <div className="w-2.5 h-2.5 rounded-full bg-arc-cyan" />
                     </div>
 
                     {/* Timeline Bubble Content */}
-                    <div className="p-6 md:p-8 rounded-2xl glass-panel border border-neutral-900 bg-[#0F3460]/25 hover:border-neutral-800 hover:bg-[#0F3460]/45 hover:shadow-[0_4px_30px_rgba(0,0,0,0.3)] transition-all duration-300 relative">
+                    <div className="p-6 md:p-8 rounded-[14px] border-2 border-arc-cyan/20 bg-white shadow-[0_4px_12px_rgba(15,76,129,0.08)] hover:border-arc-cyan hover:shadow-[0_6px_16px_rgba(15,76,129,0.12)] transition-all duration-300 relative">
                       
                       {/* Year badge */}
                       <div className="flex flex-wrap items-center justify-between gap-2 mb-3">
                         <div className="flex items-center gap-2">
-                          <IconComponent className="w-5 h-5 text-electric-amber group-hover:text-arc-cyan transition-colors" />
-                          <span className="font-mono text-2xl md:text-3xl font-black text-electric-amber tracking-wider text-glow-amber">
+                          <IconComponent className="w-5 h-5 text-arc-cyan" />
+                          <span className="font-mono text-2xl md:text-3xl font-black text-arc-cyan tracking-wider">
                             {milestone.year}
                           </span>
                         </div>
@@ -170,7 +173,7 @@ export const About: React.FC = () => {
                         </span>
                       </div>
 
-                      <h3 className="font-orbitron font-extrabold text-base md:text-lg text-text-light group-hover:text-arc-cyan transition-colors mb-2">
+                      <h3 className="font-orbitron font-extrabold text-base md:text-lg text-text-light mb-2">
                         {milestone.title}
                       </h3>
 

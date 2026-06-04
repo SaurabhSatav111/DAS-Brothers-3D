@@ -1,6 +1,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { Zap, ArrowRight, ChevronDown } from "lucide-react";
+import heroSubstation from "../../assets/hero_substation.png";
 
 export const Hero: React.FC = () => {
   const words = "Empowering Maharashtra Since 1987".split(" ");
@@ -33,12 +34,15 @@ export const Hero: React.FC = () => {
       id="home" 
       className="relative min-h-[92svh] md:min-h-screen flex flex-col justify-center items-start text-left px-6 md:px-12 lg:px-24 overflow-hidden pt-20"
     >
-      {/* Background radial glow */}
-      <div className="absolute inset-0 bg-gradient-to-r from-deep-grid-navy via-deep-grid-navy/80 to-transparent -z-20 pointer-events-none" />
-      <div className="absolute top-[20%] left-[10%] w-[35%] h-[35%] rounded-full bg-[#00D4FF]/5 blur-[120px] -z-20 pointer-events-none" />
+      {/* Background industrial static image with light radial grid overlay */}
+      <div 
+        className="absolute inset-0 bg-cover bg-center -z-20 pointer-events-none"
+        style={{ backgroundImage: `url(${heroSubstation})` }}
+      />
+      <div className="absolute inset-0 bg-gradient-to-r from-white/95 via-white/85 to-white/70 -z-10 pointer-events-none" />
 
       {/* Grid overlay for electrical wire sensation */}
-      <div className="absolute inset-0 grid-bg opacity-5 -z-20 pointer-events-none" />
+      <div className="absolute inset-0 grid-bg opacity-5 -z-10 pointer-events-none" />
 
       {/* Content wrapper stacked above the background 3D Scene */}
       <div className="relative z-20 w-full flex flex-col justify-center items-start">
@@ -96,14 +100,14 @@ export const Hero: React.FC = () => {
         >
           <a
             href="#services"
-            className="px-8 py-4 rounded-xl font-orbitron text-xs md:text-sm font-bold tracking-widest text-deep-grid-navy bg-electric-amber hover:bg-electric-amber-dark flex items-center justify-center gap-3 transition-all duration-300 shadow-[0_0_15px_rgba(245,166,35,0.2)] hover:shadow-[0_0_30px_rgba(245,166,35,0.5)] hover:-translate-y-0.5"
+            className="px-8 py-4 rounded-xl font-orbitron text-xs md:text-sm font-bold tracking-widest text-white bg-arc-cyan hover:bg-arc-cyan/90 flex items-center justify-center gap-3 transition-all duration-300 shadow-sm"
           >
             OUR SERVICES <Zap className="w-4 h-4 fill-current" />
           </a>
 
           <a
             href="#about"
-            className="px-8 py-4 rounded-xl font-orbitron text-xs md:text-sm font-bold tracking-widest text-text-light border border-neutral-800 bg-[#0F3460]/40 hover:bg-[#0F3460]/80 flex items-center justify-center gap-2 transition-all duration-300 hover:border-neutral-700"
+            className="px-8 py-4 rounded-xl font-orbitron text-xs md:text-sm font-bold tracking-widest text-arc-cyan border border-arc-cyan/30 bg-white hover:bg-arc-cyan/5 flex items-center justify-center gap-2 transition-all duration-300 shadow-sm"
           >
             VIEW PROJECTS <ArrowRight className="w-4 h-4" />
           </a>
