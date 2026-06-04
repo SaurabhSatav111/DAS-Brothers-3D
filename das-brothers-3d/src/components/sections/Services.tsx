@@ -85,7 +85,7 @@ export const Services: React.FC<ServicesProps> = ({ hoveredService, onHoverServi
     <section 
       id="services" 
       ref={sectionRef} 
-      className="relative py-24 px-6 md:px-12 lg:px-24 overflow-hidden z-10 bg-[#1A1A2E]/40"
+      className="relative py-24 px-6 md:px-12 lg:px-24 overflow-hidden z-10 bg-[#ffffff]"
     >
       {/* Background elements */}
       <div className="absolute top-[30%] right-[10%] w-[40%] h-[40%] rounded-full bg-electric-amber/5 blur-[150px] -z-20 pointer-events-none" />

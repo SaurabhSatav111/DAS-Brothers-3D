@@ -72,7 +72,7 @@ export const About: React.FC = () => {
     <section 
       id="about" 
       ref={containerRef} 
-      className="relative py-24 px-6 md:px-12 lg:px-24 overflow-hidden z-10"
+      className="relative py-24 px-6 md:px-12 lg:px-24 overflow-hidden z-10 bg-[#ffffff]"
     >
       {/* Background overlay */}
       <div className="absolute inset-0 grid-bg opacity-[0.02] pointer-events-none -z-20" />

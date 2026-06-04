@@ -176,7 +176,7 @@ export const Stats: React.FC = () => {
     <section 
       id="stats" 
       ref={containerRef} 
-      className="relative py-24 px-6 md:px-12 lg:px-24 overflow-hidden z-10 bg-[#1A1A2E]/60 border-t border-neutral-900/40"
+      className="relative py-24 px-6 md:px-12 lg:px-24 overflow-hidden z-10 bg-[#0a1e3c] border-t border-neutral-900/40"
     >
       {/* Background circular gradients */}
       <div className="absolute top-[20%] left-[-10%] w-[35%] h-[35%] rounded-full bg-arc-cyan/5 blur-[120px] -z-20 pointer-events-none" />

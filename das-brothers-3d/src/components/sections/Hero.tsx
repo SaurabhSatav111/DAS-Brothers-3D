@@ -39,7 +39,7 @@ export const Hero: React.FC = () => {
         className="absolute inset-0 bg-cover bg-center -z-20 pointer-events-none"
         style={{ backgroundImage: `url(${heroSubstation})` }}
       />
-      <div className="absolute inset-0 bg-gradient-to-r from-white/95 via-white/85 to-white/70 -z-10 pointer-events-none" />
+      <div className="absolute inset-0 bg-gradient-to-r from-[#f5f7fa]/95 via-[#f5f7fa]/85 to-[#f5f7fa]/70 -z-10 pointer-events-none" />
 
       {/* Grid overlay for electrical wire sensation */}
       <div className="absolute inset-0 grid-bg opacity-5 -z-10 pointer-events-none" />

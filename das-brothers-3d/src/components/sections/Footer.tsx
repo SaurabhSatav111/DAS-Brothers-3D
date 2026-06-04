@@ -5,7 +5,7 @@ export const Footer: React.FC = () => {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="relative bg-neutral-950 border-t border-neutral-800 pt-16 pb-8 px-6 md:px-12 lg:px-24 z-10">
+    <footer className="relative bg-[#1a2f50] border-t border-neutral-800 pt-16 pb-8 px-6 md:px-12 lg:px-24 z-10">
       
       {/* Decorative Technical Diagram Overlay */}
       <div className="absolute inset-0 grid-bg opacity-[0.02] pointer-events-none" />

@@ -26,7 +26,7 @@ export const CtaBanner: React.FC = () => {
   return (
     <section 
       id="contact" 
-      className="relative py-24 px-6 md:px-12 lg:px-24 overflow-hidden z-10 border-t border-neutral-800 bg-neutral-900"
+      className="relative py-24 px-6 md:px-12 lg:px-24 overflow-hidden z-10 border-t border-neutral-800 bg-[#ffffff]"
     >
       {/* Background graphic */}
       <div className="absolute top-[50%] left-[50%] -translate-x-1/2 -translate-y-1/2 w-[60%] h-[60%] rounded-full bg-electric-amber/5 blur-[160px] -z-20 pointer-events-none" />

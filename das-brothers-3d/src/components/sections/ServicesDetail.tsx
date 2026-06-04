@@ -145,7 +145,7 @@ export const ServicesDetail: React.FC = () => {
   return (
     <section 
       id="services-detail" 
-      className="relative py-24 px-6 md:px-12 lg:px-24 overflow-hidden z-10"
+      className="relative py-24 px-6 md:px-12 lg:px-24 overflow-hidden z-10 bg-[#f0f4f8]"
     >
       <div className="max-w-7xl mx-auto flex flex-col gap-24">
         {details.map((detail, index) => {
