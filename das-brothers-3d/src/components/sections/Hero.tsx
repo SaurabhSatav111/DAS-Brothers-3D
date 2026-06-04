@@ -1,7 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { Zap, ArrowRight, ChevronDown } from "lucide-react";
-import heroSubstation from "../../assets/hero_substation.png";
 
 export const Hero: React.FC = () => {
   const words = "Empowering Maharashtra Since 1987".split(" ");
@@ -32,15 +31,11 @@ export const Hero: React.FC = () => {
   return (
     <section
       id="home"
-      className="relative min-h-[92svh] md:min-h-screen flex flex-col justify-center items-start text-left px-6 md:px-12 lg:px-24 overflow-hidden pt-20"
+      className="relative min-h-screen flex flex-col justify-center items-start text-left px-6 md:px-12 lg:px-24 overflow-hidden pt-20"
+      style={{
+        background: "linear-gradient(rgba(10,20,45,0.58), rgba(10,20,45,0.58)), url('/hero-bg.jpg') center/cover no-repeat"
+      }}
     >
-      {/* Background industrial static image with light radial grid overlay */}
-      <div
-        className="absolute inset-0 bg-cover bg-center -z-20 pointer-events-none"
-        style={{ backgroundImage: `url(${heroSubstation})` }}
-      />
-      <div className="absolute inset-0 bg-gradient-to-r from-[#f5f7fa]/95 via-[#f5f7fa]/85 to-[#f5f7fa]/70 -z-10 pointer-events-none" />
-
       {/* Grid overlay for electrical wire sensation */}
       <div className="absolute inset-0 grid-bg opacity-5 -z-10 pointer-events-none" />
 
@@ -51,7 +46,7 @@ export const Hero: React.FC = () => {
           initial={{ opacity: 0, x: -20 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ delay: 0.2, duration: 0.8 }}
-          className="flex items-center gap-2 px-3 py-1.5 rounded-full border border-[#0a1e3c] bg-[#f0f4f8] text-[10px] md:text-xs font-mono text-[#0a1e3c] mb-6 tracking-widest"
+          className="flex items-center gap-2 px-3 py-1.5 rounded-full border border-[rgba(255,255,255,0.3)] bg-transparent text-[10px] md:text-xs font-mono text-[#ef9f27] mb-6 tracking-widest"
         >
           <span className="relative flex h-2 w-2">
             <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-success-live opacity-75"></span>
@@ -67,15 +62,15 @@ export const Hero: React.FC = () => {
           animate="visible"
           className="max-w-4xl"
         >
-          <h1 className="font-orbitron font-black text-4xl sm:text-5xl md:text-7xl tracking-tight leading-[1.08] text-[#0a1e3c] mb-6">
+          <h1 className="font-orbitron font-black text-4xl sm:text-5xl md:text-7xl tracking-tight leading-[1.08] text-[#ffffff] mb-6">
             {words.map((word, idx) => (
               <span key={idx} className="inline-block mr-3 md:mr-5">
                 {word === "Maharashtra" ? (
-                  <span className="text-[#0a1e3c]">
+                  <span className="text-[#ffffff]">
                     {word}
                   </span>
                 ) : word === "1987" ? (
-                  <span className="text-[#0a1e3c]">
+                  <span className="text-[#ffffff]">
                     {word}
                   </span>
                 ) : (
@@ -88,7 +83,7 @@ export const Hero: React.FC = () => {
           {/* Subtext description */}
           <motion.p
             variants={wordVariants}
-            className="font-inter text-base md:text-xl text-[#5a6a80] leading-relaxed max-w-2xl mb-10"
+            className="font-inter text-base md:text-xl text-[rgba(255,255,255,0.85)] leading-relaxed max-w-2xl mb-10"
           >
             Specialist Electrical EPC Contractors. Engineering high-voltage substations, complete HT/LT networks, and precision power panels for Pune's leading industrial grids.
           </motion.p>
@@ -100,14 +95,14 @@ export const Hero: React.FC = () => {
           >
             <a
               href="#services"
-              className="px-8 py-4 rounded-xl font-orbitron text-xs md:text-sm font-bold tracking-widest text-white bg-arc-cyan hover:bg-arc-cyan/90 flex items-center justify-center gap-3 transition-all duration-300 shadow-sm"
+              className="px-8 py-4 rounded-xl font-orbitron text-xs md:text-sm font-bold tracking-widest text-[#0a1e3c] bg-[#ef9f27] hover:bg-[#ef9f27]/90 flex items-center justify-center gap-3 transition-all duration-300 shadow-sm"
             >
               OUR SERVICES <Zap className="w-4 h-4 fill-current" />
             </a>
 
             <a
               href="#about"
-              className="px-8 py-4 rounded-xl font-orbitron text-xs md:text-sm font-bold tracking-widest text-arc-cyan border border-arc-cyan/30 bg-white hover:bg-arc-cyan/5 flex items-center justify-center gap-2 transition-all duration-300 shadow-sm"
+              className="px-8 py-4 rounded-xl font-orbitron text-xs md:text-sm font-bold tracking-widest text-white border border-white bg-transparent hover:bg-white/10 flex items-center justify-center gap-2 transition-all duration-300 shadow-sm"
             >
               VIEW PROJECTS <ArrowRight className="w-4 h-4" />
             </a>
@@ -128,10 +123,10 @@ export const Hero: React.FC = () => {
             { num: "62", label: "SKILLED ENGINEERS" }
           ].map((stat, idx) => (
             <div key={idx} className="flex flex-col">
-              <span className="font-mono text-xl md:text-3xl font-black text-[#0a1e3c] tracking-wider">
+              <span className="font-mono text-xl md:text-3xl font-black text-[#ffffff] tracking-wider">
                 {stat.num}
               </span>
-              <span className="text-[10px] md:text-xs font-orbitron font-semibold tracking-widest text-[#5a6a80] mt-1">
+              <span className="text-[10px] md:text-xs font-orbitron font-semibold tracking-widest text-[rgba(255,255,255,0.75)] mt-1">
                 {stat.label}
               </span>
             </div>
@@ -144,7 +139,7 @@ export const Hero: React.FC = () => {
         <motion.span
           animate={{ y: [0, 8, 0] }}
           transition={{ duration: 1.8, repeat: Infinity, ease: "easeInOut" }}
-          className="text-xs font-mono text-[#5a6a80] tracking-widest"
+          className="text-xs font-mono text-[rgba(255,255,255,0.75)] tracking-widest"
         >
           SCROLL FOR COPPERS
         </motion.span>
