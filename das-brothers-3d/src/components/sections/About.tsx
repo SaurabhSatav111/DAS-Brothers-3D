@@ -117,7 +117,7 @@ export const About: React.FC = () => {
           <div className="lg:col-span-5 lg:sticky lg:top-24 flex flex-col gap-6">
             
             {/* Photo 1: Substation Maintenance */}
-            <div className="h-[240px] lg:h-[280px] rounded-2xl border border-neutral-900 bg-[#0F3460]/10 overflow-hidden group relative isolate z-0">
+            <div className="h-[350px] lg:h-[450px] rounded-2xl border border-neutral-900 bg-[#0F3460]/10 overflow-hidden group relative isolate z-0">
               <div className="absolute top-4 left-4 z-20 flex items-center gap-1.5 px-2.5 py-1 rounded bg-[#1A1A2E]/80 border border-neutral-800 text-[10px] font-mono text-text-light/60">
                 <span className="w-1.5 h-1.5 rounded-full bg-arc-cyan" />
                 ENGINEERING STANDARDS
@@ -132,7 +132,7 @@ export const About: React.FC = () => {
             </div>
 
             {/* Photo 2: Electrical Panel / Infrastructure */}
-            <div className="h-[240px] lg:h-[280px] rounded-2xl border border-neutral-900 bg-[#0F3460]/10 overflow-hidden group relative isolate z-0">
+            <div className="h-[350px] lg:h-[450px] rounded-2xl border border-neutral-900 bg-[#0F3460]/10 overflow-hidden group relative isolate z-0">
               <div className="absolute top-4 left-4 z-20 flex items-center gap-1.5 px-2.5 py-1 rounded bg-[#1A1A2E]/80 border border-neutral-800 text-[10px] font-mono text-text-light/60">
                 <span className="w-1.5 h-1.5 rounded-full bg-electric-amber" />
                 POWER INFRASTRUCTURE

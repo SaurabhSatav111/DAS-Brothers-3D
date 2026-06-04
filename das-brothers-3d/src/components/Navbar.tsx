@@ -30,10 +30,7 @@ export const Navbar: React.FC = () => {
 
   return (
     <>
-      <motion.nav
-        initial={{ y: -100, opacity: 0 }}
-        animate={{ y: 0, opacity: 1 }}
-        transition={{ duration: 0.8, delay: 0.5, ease: [0.16, 1, 0.3, 1] }}
+      <nav
         className={`fixed top-0 left-0 w-full z-40 transition-all duration-500 border-b ${
           scrolled 
             ? "bg-[#0a1e3c] py-3 shadow-sm border-neutral-800" 
@@ -93,7 +90,7 @@ export const Navbar: React.FC = () => {
             </button>
           </div>
         </div>
-      </motion.nav>
+      </nav>
 
       {/* Mobile Drawer Overlay */}
       <AnimatePresence>
