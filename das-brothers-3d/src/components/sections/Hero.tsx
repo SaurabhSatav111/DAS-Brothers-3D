@@ -30,12 +30,12 @@ export const Hero: React.FC = () => {
   };
 
   return (
-    <section 
-      id="home" 
+    <section
+      id="home"
       className="relative min-h-[92svh] md:min-h-screen flex flex-col justify-center items-start text-left px-6 md:px-12 lg:px-24 overflow-hidden pt-20"
     >
       {/* Background industrial static image with light radial grid overlay */}
-      <div 
+      <div
         className="absolute inset-0 bg-cover bg-center -z-20 pointer-events-none"
         style={{ backgroundImage: `url(${heroSubstation})` }}
       />
@@ -48,100 +48,100 @@ export const Hero: React.FC = () => {
       <div className="relative z-20 w-full flex flex-col justify-center items-start">
         {/* Live Grid indicator badge */}
         <motion.div
-        initial={{ opacity: 0, x: -20 }}
-        animate={{ opacity: 1, x: 0 }}
-        transition={{ delay: 0.2, duration: 0.8 }}
-        className="flex items-center gap-2 px-3 py-1.5 rounded-full border border-success-live/20 bg-success-live/5 text-[10px] md:text-xs font-mono text-success-live mb-6 tracking-widest shadow-[0_0_15px_rgba(57,255,20,0.1)]"
-      >
-        <span className="relative flex h-2 w-2">
-          <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-success-live opacity-75"></span>
-          <span className="relative inline-flex rounded-full h-2 w-2 bg-success-live"></span>
-        </span>
-        LIVE GRID CONNECTED: Pune Infrastructure Hub
-      </motion.div>
-
-      {/* Main Title Heading - Word by word reveal */}
-      <motion.div
-        variants={containerVariants}
-        initial="hidden"
-        animate="visible"
-        className="max-w-4xl"
-      >
-        <h1 className="font-orbitron font-black text-4xl sm:text-5xl md:text-7xl tracking-tight leading-[1.08] text-text-light mb-6">
-          {words.map((word, idx) => (
-            <span key={idx} className="inline-block mr-3 md:mr-5">
-              {word === "Maharashtra" ? (
-                <span className="text-electric-amber text-glow-amber">
-                  {word}
-                </span>
-              ) : word === "1987" ? (
-                <span className="text-arc-cyan text-glow-cyan">
-                  {word}
-                </span>
-              ) : (
-                word
-              )}
-            </span>
-          ))}
-        </h1>
-
-        {/* Subtext description */}
-        <motion.p
-          variants={wordVariants}
-          className="font-inter text-base md:text-xl text-text-light/75 leading-relaxed max-w-2xl mb-10"
+          initial={{ opacity: 0, x: -20 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ delay: 0.2, duration: 0.8 }}
+          className="flex items-center gap-2 px-3 py-1.5 rounded-full border border-success-live/20 bg-success-live/5 text-[10px] md:text-xs font-mono text-success-live mb-6 tracking-widest shadow-[0_0_15px_rgba(57,255,20,0.1)]"
         >
-          Specialist Electrical EPC Contractors. Engineering high-voltage substations, complete HT/LT networks, and precision power panels for Pune's leading industrial grids.
-        </motion.p>
-
-        {/* Action Call to Buttons */}
-        <motion.div
-          variants={wordVariants}
-          className="flex flex-col sm:flex-row gap-4 w-full sm:w-auto"
-        >
-          <a
-            href="#services"
-            className="px-8 py-4 rounded-xl font-orbitron text-xs md:text-sm font-bold tracking-widest text-white bg-arc-cyan hover:bg-arc-cyan/90 flex items-center justify-center gap-3 transition-all duration-300 shadow-sm"
-          >
-            OUR SERVICES <Zap className="w-4 h-4 fill-current" />
-          </a>
-
-          <a
-            href="#about"
-            className="px-8 py-4 rounded-xl font-orbitron text-xs md:text-sm font-bold tracking-widest text-arc-cyan border border-arc-cyan/30 bg-white hover:bg-arc-cyan/5 flex items-center justify-center gap-2 transition-all duration-300 shadow-sm"
-          >
-            VIEW PROJECTS <ArrowRight className="w-4 h-4" />
-          </a>
+          <span className="relative flex h-2 w-2">
+            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-success-live opacity-75"></span>
+            <span className="relative inline-flex rounded-full h-2 w-2 bg-success-live"></span>
+          </span>
+          LIVE GRID CONNECTED: Pune Infrastructure Hub
         </motion.div>
-      </motion.div>
 
-      {/* Floating metrics grid */}
-      <motion.div
-        initial={{ opacity: 0, y: 50 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 1.2, duration: 1.0, ease: [0.16, 1, 0.3, 1] as const }}
-        className="mt-16 md:mt-24 grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-12 w-full max-w-5xl border-t border-neutral-900/60 pt-8"
-      >
-        {[
-          { num: "37+", label: "YEARS OF TRUST" },
-          { num: "5+", label: "SUBSTATIONS BUILT" },
-          { num: "10K+", label: "HT/LT JOINTS" },
-          { num: "62", label: "SKILLED ENGINEERS" }
-        ].map((stat, idx) => (
-          <div key={idx} className="flex flex-col">
-            <span className="font-mono text-xl md:text-3xl font-black text-arc-cyan tracking-wider">
-              {stat.num}
-            </span>
-            <span className="text-[10px] md:text-xs font-orbitron font-semibold tracking-widest text-text-light/50 mt-1">
-              {stat.label}
-            </span>
-          </div>
-        ))}
-      </motion.div>
+        {/* Main Title Heading - Word by word reveal */}
+        <motion.div
+          variants={containerVariants}
+          initial="hidden"
+          animate="visible"
+          className="max-w-4xl"
+        >
+          <h1 className="font-orbitron font-black text-4xl sm:text-5xl md:text-7xl tracking-tight leading-[1.08] text-text-light mb-6">
+            {words.map((word, idx) => (
+              <span key={idx} className="inline-block mr-3 md:mr-5">
+                {word === "Maharashtra" ? (
+                  <span className="text-electric-amber text-glow-amber">
+                    {word}
+                  </span>
+                ) : word === "1987" ? (
+                  <span className="text-arc-cyan text-glow-cyan">
+                    {word}
+                  </span>
+                ) : (
+                  word
+                )}
+              </span>
+            ))}
+          </h1>
+
+          {/* Subtext description */}
+          <motion.p
+            variants={wordVariants}
+            className="font-inter text-base md:text-xl text-text-light/75 leading-relaxed max-w-2xl mb-10"
+          >
+            Specialist Electrical EPC Contractors. Engineering high-voltage substations, complete HT/LT networks, and precision power panels for Pune's leading industrial grids.
+          </motion.p>
+
+          {/* Action Call to Buttons */}
+          <motion.div
+            variants={wordVariants}
+            className="flex flex-col sm:flex-row gap-4 w-full sm:w-auto"
+          >
+            <a
+              href="#services"
+              className="px-8 py-4 rounded-xl font-orbitron text-xs md:text-sm font-bold tracking-widest text-white bg-arc-cyan hover:bg-arc-cyan/90 flex items-center justify-center gap-3 transition-all duration-300 shadow-sm"
+            >
+              OUR SERVICES <Zap className="w-4 h-4 fill-current" />
+            </a>
+
+            <a
+              href="#about"
+              className="px-8 py-4 rounded-xl font-orbitron text-xs md:text-sm font-bold tracking-widest text-arc-cyan border border-arc-cyan/30 bg-white hover:bg-arc-cyan/5 flex items-center justify-center gap-2 transition-all duration-300 shadow-sm"
+            >
+              VIEW PROJECTS <ArrowRight className="w-4 h-4" />
+            </a>
+          </motion.div>
+        </motion.div>
+
+        {/* Floating metrics grid */}
+        <motion.div
+          initial={{ opacity: 0, y: 50 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 1.2, duration: 1.0, ease: [0.16, 1, 0.3, 1] as const }}
+          className="mt-16 md:mt-24 grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-12 w-full max-w-5xl border-t border-neutral-900/60 pt-8"
+        >
+          {[
+            { num: "37+", label: "YEARS OF TRUST" },
+            { num: "5+", label: "SUBSTATIONS BUILT" },
+            { num: "10K+", label: "HT/LT JOINTS" },
+            { num: "62", label: "SKILLED ENGINEERS" }
+          ].map((stat, idx) => (
+            <div key={idx} className="flex flex-col">
+              <span className="font-mono text-xl md:text-3xl font-black text-arc-cyan tracking-wider">
+                {stat.num}
+              </span>
+              <span className="text-[10px] md:text-xs font-orbitron font-semibold tracking-widest text-text-light/50 mt-1">
+                {stat.label}
+              </span>
+            </div>
+          ))}
+        </motion.div>
       </div>
 
       {/* Animated downward bouncing scroll indicator */}
       <div className="absolute bottom-6 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 pointer-events-none">
-        <motion.span 
+        <motion.span
           animate={{ y: [0, 8, 0] }}
           transition={{ duration: 1.8, repeat: Infinity, ease: "easeInOut" }}
           className="text-xs font-mono text-text-light/35 tracking-widest"

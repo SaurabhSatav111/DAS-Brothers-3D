@@ -36,8 +36,8 @@ export const Navbar: React.FC = () => {
         transition={{ duration: 0.8, delay: 0.5, ease: [0.16, 1, 0.3, 1] }}
         className={`fixed top-0 left-0 w-full z-40 transition-all duration-500 border-b ${
           scrolled 
-            ? "glass-panel py-3 shadow-sm border-neutral-800" 
-            : "bg-transparent py-5 border-transparent"
+            ? "bg-[#0a1e3c] py-3 shadow-sm border-neutral-800" 
+            : "bg-[#0a1e3c] py-5 border-transparent"
         }`}
       >
         <div className="max-w-7xl mx-auto px-6 flex items-center justify-between">
@@ -103,7 +103,7 @@ export const Navbar: React.FC = () => {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.3 }}
-            className="fixed inset-0 z-30 lg:hidden glass-panel flex flex-col justify-center px-8 border-none"
+            className="fixed inset-0 z-30 lg:hidden bg-[#0a1e3c] flex flex-col justify-center px-8 border-none"
           >
             {/* Grid overlay */}
             <div className="absolute inset-0 grid-bg opacity-5 pointer-events-none" />
