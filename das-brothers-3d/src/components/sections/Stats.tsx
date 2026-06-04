@@ -188,13 +188,13 @@ export const Stats: React.FC = () => {
       <div className="max-w-7xl mx-auto flex flex-col items-center">
         {/* Header Title */}
         <div className="text-center mb-16 max-w-xl">
-          <span className="text-xs font-mono text-arc-cyan tracking-[0.35em] uppercase block mb-3 animate-pulse">
+          <span className="text-xs font-mono text-[#ef9f27] tracking-[0.35em] uppercase block mb-3 animate-pulse">
             Grid Dashboard & Metrics
           </span>
-          <h2 className="font-orbitron font-extrabold text-3xl md:text-5xl text-text-light tracking-tight">
+          <h2 className="font-orbitron font-extrabold text-3xl md:text-5xl text-[#ffffff] tracking-tight">
             Power Grid Stats
           </h2>
-          <p className="font-inter text-text-light/60 text-xs md:text-sm mt-3 leading-relaxed">
+          <p className="font-inter text-[rgba(255,255,255,0.8)] text-xs md:text-sm mt-3 leading-relaxed">
             Real-time visual monitoring of historical parameters, safety records, and project volumes completed.
           </p>
         </div>
@@ -223,14 +223,14 @@ export const Stats: React.FC = () => {
                 {/* 2. Card Header (Icons + Labels) */}
                 <div className="relative z-10 flex justify-between items-start">
                   <div className="flex flex-col">
-                    <span className="text-[10px] font-mono text-text-light/50 tracking-wider">
+                    <span className="text-[10px] font-mono text-white/50 tracking-wider">
                       PARAMETER CODE: DB-{(index + 1) * 100}
                     </span>
-                    <span className="font-orbitron text-[10px] md:text-xs font-black tracking-widest text-text-light/80 mt-1">
+                    <span className="font-orbitron text-[10px] md:text-xs font-black tracking-widest text-[#ffffff] mt-1">
                       {stat.label}
                     </span>
                   </div>
-                  <div className="w-8 h-8 rounded bg-substation-dark border border-neutral-800 flex items-center justify-center text-text-light/50 group-hover:text-electric-amber transition-colors duration-300">
+                  <div className="w-8 h-8 rounded bg-substation-dark border border-neutral-800 flex items-center justify-center text-white/50 group-hover:text-electric-amber transition-colors duration-300">
                     <IconComponent className="w-4 h-4" />
                   </div>
                 </div>
@@ -243,7 +243,7 @@ export const Stats: React.FC = () => {
                   >
                     <CountUpValue value={stat.value} startCount={isInView} />
                   </span>
-                  <span className="text-[10px] md:text-xs font-inter text-text-light/40 mt-1">
+                  <span className="text-[10px] md:text-xs font-inter text-white/60 mt-1">
                     {stat.sub}
                   </span>
                 </div>

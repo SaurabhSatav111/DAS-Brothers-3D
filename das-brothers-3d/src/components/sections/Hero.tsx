@@ -51,13 +51,14 @@ export const Hero: React.FC = () => {
           initial={{ opacity: 0, x: -20 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ delay: 0.2, duration: 0.8 }}
-          className="flex items-center gap-2 px-3 py-1.5 rounded-full border border-success-live/20 bg-success-live/5 text-[10px] md:text-xs font-mono text-success-live mb-6 tracking-widest shadow-[0_0_15px_rgba(57,255,20,0.1)]"
+          className="flex items-center gap-2 px-3 py-1.5 rounded-full border border-success-live/20 bg-success-live/5 text-[10px] md:text-xs font-mono mb-6 tracking-widest shadow-[0_0_15px_rgba(57,255,20,0.1)]"
         >
           <span className="relative flex h-2 w-2">
             <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-success-live opacity-75"></span>
             <span className="relative inline-flex rounded-full h-2 w-2 bg-success-live"></span>
           </span>
-          LIVE GRID CONNECTED: Pune Infrastructure Hub
+          <span className="text-[#ef9f27]">LIVE GRID CONNECTED:</span>
+          <span className="text-[#ffffff]"> Pune Infrastructure Hub</span>
         </motion.div>
 
         {/* Main Title Heading - Word by word reveal */}
@@ -67,15 +68,15 @@ export const Hero: React.FC = () => {
           animate="visible"
           className="max-w-4xl"
         >
-          <h1 className="font-orbitron font-black text-4xl sm:text-5xl md:text-7xl tracking-tight leading-[1.08] text-text-light mb-6">
+          <h1 className="font-orbitron font-black text-4xl sm:text-5xl md:text-7xl tracking-tight leading-[1.08] text-[#ffffff] mb-6">
             {words.map((word, idx) => (
               <span key={idx} className="inline-block mr-3 md:mr-5">
                 {word === "Maharashtra" ? (
-                  <span className="text-electric-amber text-glow-amber">
+                  <span className="text-[#ffffff]">
                     {word}
                   </span>
                 ) : word === "1987" ? (
-                  <span className="text-arc-cyan text-glow-cyan">
+                  <span className="text-[#ffffff]">
                     {word}
                   </span>
                 ) : (
@@ -88,7 +89,7 @@ export const Hero: React.FC = () => {
           {/* Subtext description */}
           <motion.p
             variants={wordVariants}
-            className="font-inter text-base md:text-xl text-text-light/75 leading-relaxed max-w-2xl mb-10"
+            className="font-inter text-base md:text-xl text-[rgba(255,255,255,0.85)] leading-relaxed max-w-2xl mb-10"
           >
             Specialist Electrical EPC Contractors. Engineering high-voltage substations, complete HT/LT networks, and precision power panels for Pune's leading industrial grids.
           </motion.p>
