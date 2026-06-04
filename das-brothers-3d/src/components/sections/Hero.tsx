@@ -51,14 +51,13 @@ export const Hero: React.FC = () => {
           initial={{ opacity: 0, x: -20 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ delay: 0.2, duration: 0.8 }}
-          className="flex items-center gap-2 px-3 py-1.5 rounded-full border border-success-live/20 bg-success-live/5 text-[10px] md:text-xs font-mono mb-6 tracking-widest shadow-[0_0_15px_rgba(57,255,20,0.1)]"
+          className="flex items-center gap-2 px-3 py-1.5 rounded-full border border-[#0a1e3c] bg-[#f0f4f8] text-[10px] md:text-xs font-mono text-[#0a1e3c] mb-6 tracking-widest"
         >
           <span className="relative flex h-2 w-2">
             <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-success-live opacity-75"></span>
             <span className="relative inline-flex rounded-full h-2 w-2 bg-success-live"></span>
           </span>
-          <span className="text-[#ef9f27]">LIVE GRID CONNECTED:</span>
-          <span className="text-[#ffffff]"> Pune Infrastructure Hub</span>
+          LIVE GRID CONNECTED: Pune Infrastructure Hub
         </motion.div>
 
         {/* Main Title Heading - Word by word reveal */}
@@ -68,15 +67,15 @@ export const Hero: React.FC = () => {
           animate="visible"
           className="max-w-4xl"
         >
-          <h1 className="font-orbitron font-black text-4xl sm:text-5xl md:text-7xl tracking-tight leading-[1.08] text-[#ffffff] mb-6">
+          <h1 className="font-orbitron font-black text-4xl sm:text-5xl md:text-7xl tracking-tight leading-[1.08] text-[#0a1e3c] mb-6">
             {words.map((word, idx) => (
               <span key={idx} className="inline-block mr-3 md:mr-5">
                 {word === "Maharashtra" ? (
-                  <span className="text-[#ffffff]">
+                  <span className="text-[#0a1e3c]">
                     {word}
                   </span>
                 ) : word === "1987" ? (
-                  <span className="text-[#ffffff]">
+                  <span className="text-[#0a1e3c]">
                     {word}
                   </span>
                 ) : (
@@ -89,7 +88,7 @@ export const Hero: React.FC = () => {
           {/* Subtext description */}
           <motion.p
             variants={wordVariants}
-            className="font-inter text-base md:text-xl text-[rgba(255,255,255,0.85)] leading-relaxed max-w-2xl mb-10"
+            className="font-inter text-base md:text-xl text-[#5a6a80] leading-relaxed max-w-2xl mb-10"
           >
             Specialist Electrical EPC Contractors. Engineering high-voltage substations, complete HT/LT networks, and precision power panels for Pune's leading industrial grids.
           </motion.p>
@@ -129,10 +128,10 @@ export const Hero: React.FC = () => {
             { num: "62", label: "SKILLED ENGINEERS" }
           ].map((stat, idx) => (
             <div key={idx} className="flex flex-col">
-              <span className="font-mono text-xl md:text-3xl font-black text-arc-cyan tracking-wider">
+              <span className="font-mono text-xl md:text-3xl font-black text-[#0a1e3c] tracking-wider">
                 {stat.num}
               </span>
-              <span className="text-[10px] md:text-xs font-orbitron font-semibold tracking-widest text-text-light/50 mt-1">
+              <span className="text-[10px] md:text-xs font-orbitron font-semibold tracking-widest text-[#5a6a80] mt-1">
                 {stat.label}
               </span>
             </div>
@@ -145,7 +144,7 @@ export const Hero: React.FC = () => {
         <motion.span
           animate={{ y: [0, 8, 0] }}
           transition={{ duration: 1.8, repeat: Infinity, ease: "easeInOut" }}
-          className="text-xs font-mono text-text-light/35 tracking-widest"
+          className="text-xs font-mono text-[#5a6a80] tracking-widest"
         >
           SCROLL FOR COPPERS
         </motion.span>
