@@ -2,6 +2,7 @@ import React, { useRef } from "react";
 import { motion, useInView } from "framer-motion";
 import { Calendar, Briefcase, Award, TrendingUp } from "lucide-react";
 import substationMaintenance from "../../assets/substation_maintenance.png";
+import electricalPanel from "../../assets/electrical_panel.png";
 
 export const About: React.FC = () => {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -112,24 +113,39 @@ export const About: React.FC = () => {
         {/* Two Column Layout (Substation Sticky Left | Timeline Scroll Right) */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
           
-          {/* Left Column: Static Substation Engineering Photo */}
-          <div className="lg:col-span-5 lg:sticky lg:top-24 h-[350px] lg:h-[500px] rounded-2xl border border-neutral-900 bg-[#0F3460]/10 overflow-hidden group relative isolate z-0">
+          {/* Left Column: Static Substation Engineering Photos */}
+          <div className="lg:col-span-5 lg:sticky lg:top-24 flex flex-col gap-6">
             
-            {/* Overlays */}
-            <div className="absolute top-4 left-4 z-20 flex items-center gap-1.5 px-2.5 py-1 rounded bg-[#1A1A2E]/80 border border-neutral-800 text-[10px] font-mono text-text-light/60">
-              <span className="w-1.5 h-1.5 rounded-full bg-arc-cyan" />
-              ENGINEERING STANDARDS
-            </div>
-            
-            <div className="absolute bottom-4 right-4 z-20 flex items-center gap-1.5 px-2.5 py-1 rounded bg-[#1A1A2E]/80 border border-neutral-800 text-[10px] font-mono text-electric-amber">
-              SUBSTATION MAINTENANCE
+            {/* Photo 1: Substation Maintenance */}
+            <div className="h-[240px] lg:h-[280px] rounded-2xl border border-neutral-900 bg-[#0F3460]/10 overflow-hidden group relative isolate z-0">
+              <div className="absolute top-4 left-4 z-20 flex items-center gap-1.5 px-2.5 py-1 rounded bg-[#1A1A2E]/80 border border-neutral-800 text-[10px] font-mono text-text-light/60">
+                <span className="w-1.5 h-1.5 rounded-full bg-arc-cyan" />
+                ENGINEERING STANDARDS
+              </div>
+              <div className="absolute bottom-4 right-4 z-20 flex items-center gap-1.5 px-2.5 py-1 rounded bg-[#1A1A2E]/80 border border-neutral-800 text-[10px] font-mono text-electric-amber">
+                SUBSTATION MAINTENANCE
+              </div>
+              <div 
+                className="w-full h-full bg-cover bg-center"
+                style={{ backgroundImage: `url(${substationMaintenance})` }}
+              />
             </div>
 
-            {/* Render static image */}
-            <div 
-              className="w-full h-full bg-cover bg-center"
-              style={{ backgroundImage: `url(${substationMaintenance})` }}
-            />
+            {/* Photo 2: Electrical Panel / Infrastructure */}
+            <div className="h-[240px] lg:h-[280px] rounded-2xl border border-neutral-900 bg-[#0F3460]/10 overflow-hidden group relative isolate z-0">
+              <div className="absolute top-4 left-4 z-20 flex items-center gap-1.5 px-2.5 py-1 rounded bg-[#1A1A2E]/80 border border-neutral-800 text-[10px] font-mono text-text-light/60">
+                <span className="w-1.5 h-1.5 rounded-full bg-electric-amber" />
+                POWER INFRASTRUCTURE
+              </div>
+              <div className="absolute bottom-4 right-4 z-20 flex items-center gap-1.5 px-2.5 py-1 rounded bg-[#1A1A2E]/80 border border-neutral-800 text-[10px] font-mono text-arc-cyan">
+                PANEL FABRICATIONS
+              </div>
+              <div 
+                className="w-full h-full bg-cover bg-center"
+                style={{ backgroundImage: `url(${electricalPanel})` }}
+              />
+            </div>
+
           </div>
 
           {/* Right Column: Historical Vertical Timeline */}
