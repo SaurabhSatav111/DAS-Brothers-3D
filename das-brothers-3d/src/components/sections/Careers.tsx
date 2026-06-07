@@ -43,9 +43,9 @@ export const Careers: React.FC = () => {
   ];
 
   return (
-    <section 
-      id="careers" 
-      ref={sectionRef} 
+    <section
+      id="careers"
+      ref={sectionRef}
       className="relative py-24 px-6 md:px-12 lg:px-24 overflow-hidden z-10"
     >
       {/* Background glowing overlays */}
@@ -56,7 +56,7 @@ export const Careers: React.FC = () => {
       <div className="absolute inset-0 grid-bg opacity-[0.02] pointer-events-none -z-20" />
 
       <div className="max-w-7xl mx-auto flex flex-col items-center">
-        
+
         {/* Title Heading */}
         <div className="text-center mb-16 max-w-2xl">
           <span className="text-xs font-mono text-electric-amber tracking-[0.35em] uppercase block mb-3">
@@ -74,7 +74,7 @@ export const Careers: React.FC = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 w-full items-stretch">
           {pathways.map((path, index) => {
             const Icon = path.icon;
-            
+
             return (
               <motion.div
                 key={index}
@@ -83,17 +83,23 @@ export const Careers: React.FC = () => {
                 transition={{ duration: 0.8, delay: index * 0.15, ease: "easeOut" }}
                 className="h-full"
               >
-                {/* Stable Card Wrapper */}
                 <div
                   className="h-full p-8 rounded-2xl border border-neutral-900 bg-[#0F3460]/25 flex flex-col justify-between hover:border-electric-amber/30 transition-all duration-300 hover:shadow-[0_4px_25px_rgba(245,166,35,0.05)] relative overflow-hidden group"
                 >
                   {/* Glowing background badge */}
                   <div className="absolute top-0 right-0 w-24 h-24 rounded-full bg-gradient-to-br from-white/[0.02] to-transparent blur-md pointer-events-none" />
-                  
+
                   <div>
-                    {/* Header */}
+                    {/* Header — FIXED: transparent bg with coloured border + text */}
                     <div className="flex justify-between items-start mb-6">
-                      <span className="text-[9px] font-mono px-2 py-0.5 rounded border border-neutral-800 bg-[#1A1A2E] text-text-light/50 tracking-wider">
+                      <span
+                        className="text-[9px] font-mono px-2 py-0.5 rounded tracking-wider"
+                        style={{
+                          border: `1px solid ${path.accentColor}50`,
+                          color: path.accentColor,
+                          background: 'transparent'
+                        }}
+                      >
                         {path.type}
                       </span>
                       <Icon className="w-5 h-5" style={{ color: path.accentColor }} />
@@ -103,11 +109,11 @@ export const Careers: React.FC = () => {
                       {path.title}
                     </h3>
 
-                    <p className="font-inter text-xs md:text-sm text-text-light/60 leading-relaxed mb-6">
+                    <p className="font-inter text-xs md:text-sm text-text-light/70 leading-relaxed mb-6">
                       {path.desc}
                     </p>
 
-                    {/* Eligibility details */}
+                    {/* Eligibility */}
                     <div className="mb-6 pb-6 border-b border-neutral-900/60">
                       <span className="text-[10px] font-mono text-arc-cyan tracking-wider block mb-1">
                         ELIGIBILITY
@@ -117,11 +123,11 @@ export const Careers: React.FC = () => {
                       </span>
                     </div>
 
-                    {/* Highlights checklists */}
+                    {/* Highlights */}
                     <ul className="flex flex-col gap-2.5 mb-8">
                       {path.highlights.map((hl, hlIdx) => (
                         <li key={hlIdx} className="flex items-center gap-2">
-                          <div className="w-1.5 h-1.5 rounded-full bg-success-live" />
+                          <div className="w-1.5 h-1.5 rounded-full bg-success-live flex-shrink-0" />
                           <span className="font-inter text-xs text-text-light/75">
                             {hl}
                           </span>
