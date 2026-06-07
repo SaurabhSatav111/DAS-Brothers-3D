@@ -1,5 +1,4 @@
 import { useState } from "react";
-import OpeningSequence from "./components/ui/OpeningSequence";
 import Navbar from "./components/Navbar";
 import Hero from "./components/sections/Hero";
 import TrustBar from "./components/sections/TrustBar";
@@ -13,7 +12,6 @@ import CtaBanner from "./components/sections/CtaBanner";
 import Footer from "./components/sections/Footer";
 
 function App() {
-  const [introCompleted, setIntroCompleted] = useState(false);
   const [hoveredService, setHoveredService] = useState<number | null>(null);
 
   const handleHoverService = (index: number | null) => {
@@ -21,48 +19,42 @@ function App() {
   };
 
   return (
-    <>
-      {!introCompleted ? (
-        <OpeningSequence onComplete={() => setIntroCompleted(true)} />
-      ) : (
-        <div className="relative min-h-screen text-text-light selection:bg-electric-amber selection:text-deep-grid-navy overflow-x-hidden">
-          
-          {/* 2. Glassmorphism Header Navbar */}
-          <Navbar />
+    <div className="relative min-h-screen text-text-light selection:bg-electric-amber selection:text-deep-grid-navy overflow-x-hidden">
 
-          {/* 3. Hero Section */}
-          <Hero />
+      {/* 2. Glassmorphism Header Navbar */}
+      <Navbar />
 
-          {/* 4. Horizontal Auto-scroll Trust Bar */}
-          <TrustBar />
+      {/* 3. Hero Section */}
+      <Hero />
 
-          {/* 5. Services Section */}
-          <Services hoveredService={hoveredService} onHoverService={handleHoverService} />
+      {/* 4. Horizontal Auto-scroll Trust Bar */}
+      <TrustBar />
 
-          {/* 6. About Legacy Section (Wraps 3D Substation inside) */}
-          <About />
+      {/* 5. Services Section */}
+      <Services hoveredService={hoveredService} onHoverService={handleHoverService} />
 
-          {/* 7. Power Grid Stats Counters (Oscilloscope canvases inside) */}
-          <Stats />
+      {/* 6. About Legacy Section (Wraps 3D Substation inside) */}
+      <About />
 
-          {/* 8. Alternating Services Detail Layout (Vector blueprints inside) */}
-          <ServicesDetail />
+      {/* 7. Power Grid Stats Counters (Oscilloscope canvases inside) */}
+      <Stats />
 
-          {/* 9. Testimonials (3D Perspective carousel) */}
-          <Testimonials />
+      {/* 8. Alternating Services Detail Layout (Vector blueprints inside) */}
+      <ServicesDetail />
 
-          {/* 10. Careers (Floating apprentice cards) */}
-          <Careers />
+      {/* 9. Testimonials (3D Perspective carousel) */}
+      <Testimonials />
 
-          {/* 11. Quote request CTA banner */}
-          <CtaBanner />
+      {/* 10. Careers (Floating apprentice cards) */}
+      <Careers />
 
-          {/* 12. Footer information panel */}
-          <Footer />
+      {/* 11. Quote request CTA banner */}
+      <CtaBanner />
 
-        </div>
-      )}
-    </>
+      {/* 12. Footer information panel */}
+      <Footer />
+
+    </div>
   );
 }
 

@@ -33,7 +33,7 @@ export const Hero: React.FC = () => {
       id="home"
       className="relative min-h-screen flex flex-col justify-center items-start text-left px-6 md:px-12 lg:px-24 overflow-hidden pt-20"
       style={{
-        background: "linear-gradient(rgba(10,20,45,0.58), rgba(10,20,45,0.58)), url('/hero-bg.jpg') center/cover no-repeat"
+        background: "linear-gradient(rgba(10,20,45,0.58), rgba(10,20,45,0.58)), url('https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?w=1920&q=90&auto=format&fit=crop') center/cover no-repeat"
       }}
     >
       {/* Grid overlay for electrical wire sensation */}

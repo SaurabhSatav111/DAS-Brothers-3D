@@ -18,48 +18,54 @@ export const Services: React.FC<ServicesProps> = ({ hoveredService, onHoverServi
       desc: "Custom engineering layout designs, CAD blueprints, system protection coordination, and load calculation sheets.",
       icon: Compass,
       color: "from-arc-cyan/20 to-transparent",
-      borderColor: "group-hover:border-arc-cyan/40",
-      iconColor: "text-arc-cyan"
+      borderColor: "border-arc-cyan/40",
+      iconColor: "text-arc-cyan",
+      glowColor: "rgba(0,255,255,0.15)"
     },
     {
       title: "Substation Construction",
       desc: "Turnkey erection & commissioning of 11kV / 22kV / 33kV substations, power transformers, and switchyard gantries.",
       icon: Network,
       color: "from-electric-amber/20 to-transparent",
-      borderColor: "group-hover:border-electric-amber/40",
-      iconColor: "text-electric-amber"
+      borderColor: "border-electric-amber/40",
+      iconColor: "text-electric-amber",
+      glowColor: "rgba(245,166,35,0.15)"
     },
     {
       title: "HT & LT Works",
       desc: "High Tension & Low Tension underground cable laying, straight jointing, end termination, and overhead line structures.",
       icon: Cable,
       color: "from-arc-cyan/20 to-transparent",
-      borderColor: "group-hover:border-arc-cyan/40",
-      iconColor: "text-arc-cyan"
+      borderColor: "border-arc-cyan/40",
+      iconColor: "text-arc-cyan",
+      glowColor: "rgba(0,255,255,0.15)"
     },
     {
       title: "Panel Fabrication",
       desc: "Manufacturing custom electric control panels, power distribution boards (PDB), motor control centers (MCC), and APFC panels.",
       icon: Cpu,
       color: "from-electric-amber/20 to-transparent",
-      borderColor: "group-hover:border-electric-amber/40",
-      iconColor: "text-electric-amber"
+      borderColor: "border-electric-amber/40",
+      iconColor: "text-electric-amber",
+      glowColor: "rgba(245,166,35,0.15)"
     },
     {
       title: "Emergency Services",
       desc: "24/7 emergency breakdown troubleshooting, fault location trace testing, transformer oil filtration, and rapid restoration.",
       icon: AlertTriangle,
       color: "from-red-500/10 to-transparent",
-      borderColor: "group-hover:border-red-500/40",
-      iconColor: "text-red-500"
+      borderColor: "border-red-500/40",
+      iconColor: "text-red-500",
+      glowColor: "rgba(239,68,68,0.15)"
     },
     {
       title: "Installation & Commissioning",
       desc: "Final testing parameters validation, safety statutory inspection approvals, and full energization sequence execution.",
       icon: ShieldCheck,
       color: "from-success-live/15 to-transparent",
-      borderColor: "group-hover:border-success-live/40",
-      iconColor: "text-success-live"
+      borderColor: "border-green-500/40",
+      iconColor: "text-success-live",
+      glowColor: "rgba(34,197,94,0.15)"
     }
   ];
 
@@ -74,17 +80,17 @@ export const Services: React.FC<ServicesProps> = ({ hoveredService, onHoverServi
 
   const cardVariants = {
     hidden: { opacity: 0, y: 55 },
-    visible: { 
-      opacity: 1, 
+    visible: {
+      opacity: 1,
       y: 0,
       transition: { duration: 0.8, ease: [0.16, 1, 0.3, 1] as const }
     }
   };
 
   return (
-    <section 
-      id="services" 
-      ref={sectionRef} 
+    <section
+      id="services"
+      ref={sectionRef}
       className="relative py-24 px-6 md:px-12 lg:px-24 overflow-hidden z-10 bg-[#ffffff]"
     >
       {/* Background elements */}
@@ -120,24 +126,24 @@ export const Services: React.FC<ServicesProps> = ({ hoveredService, onHoverServi
           </motion.p>
         </div>
 
-        {/* Split Layout: 3D PCB Left | Service Cards Right */}
+        {/* Split Layout: Image Left | Service Cards Right */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-stretch">
-          
+
           {/* Left Column: Industrial Electrical Panel Static Image */}
           <div className="lg:col-span-5 min-h-[400px] lg:min-h-0 rounded-2xl border border-neutral-900 bg-[#0F3460]/10 overflow-hidden relative isolate z-0 flex flex-col justify-stretch">
             <div className="absolute top-4 left-4 z-20 flex items-center gap-1.5 px-2.5 py-1 rounded bg-[#1A1A2E]/80 border border-neutral-800 text-[10px] font-mono text-text-light/50">
               <span className="w-1.5 h-1.5 rounded-full bg-electric-amber" />
               POWER INFRASTRUCTURE
             </div>
-            <div 
+            <div
               className="w-full h-full min-h-[400px] lg:h-auto flex-grow bg-cover bg-center"
               style={{ backgroundImage: `url(${electricalPanel})` }}
             />
           </div>
 
-          {/* Right Column: HTML Cards Grid (2 columns on desktop/tablet) */}
+          {/* Right Column: Service Cards Grid */}
           <div className="lg:col-span-7">
-            <motion.div 
+            <motion.div
               variants={gridVariants}
               initial="hidden"
               animate={isInView ? "visible" : "hidden"}
@@ -155,21 +161,29 @@ export const Services: React.FC<ServicesProps> = ({ hoveredService, onHoverServi
                     onMouseEnter={() => onHoverService(index)}
                     onMouseLeave={() => onHoverService(null)}
                   >
-                    <div 
-                      className={`h-full p-6 rounded-2xl glass-panel border transition-all duration-300 flex flex-col justify-between relative overflow-hidden ${
-                        isHovered 
-                          ? "border-electric-amber/80 bg-[#0F3460]/90" 
-                          : "border-neutral-900 bg-[#0F3460]/30 hover:border-neutral-800"
-                      }`}
+                    <div
+                      className={`h-full p-6 rounded-2xl glass-panel flex flex-col justify-between relative overflow-hidden transition-all duration-300 ${service.borderColor} ${isHovered
+                          ? "bg-[#0F3460]/90 shadow-lg"
+                          : "bg-[#0F3460]/30"
+                        }`}
+                      style={{
+                        border: `1.5px solid`,
+                        borderColor: isHovered ? service.glowColor.replace('0.15', '0.7') : service.glowColor.replace('0.15', '0.35'),
+                        boxShadow: isHovered ? `0 0 18px ${service.glowColor}, inset 0 0 12px ${service.glowColor}` : `0 0 0px transparent`
+                      }}
                     >
-                      {/* Subtle color highlight circle on active hover */}
+                      {/* Subtle color highlight circle */}
                       <div className={`absolute -top-16 -right-16 w-36 h-36 rounded-full bg-gradient-to-br ${service.color} blur-2xl group-hover:scale-125 transition-transform duration-700`} />
-                      
+
                       <div>
-                        {/* Glowing Icon Container */}
-                        <div className={`w-11 h-11 rounded-xl bg-substation-dark border border-neutral-800/80 flex items-center justify-center mb-5 group-hover:border-electric-amber/30 transition-all duration-300 ${
-                          isHovered ? "border-electric-amber/60 shadow-[0_0_15px_rgba(245,166,35,0.15)]" : ""
-                        }`}>
+                        {/* Icon */}
+                        <div className={`w-11 h-11 rounded-xl bg-substation-dark flex items-center justify-center mb-5 transition-all duration-300`}
+                          style={{
+                            border: `1px solid`,
+                            borderColor: isHovered ? service.glowColor.replace('0.15', '0.6') : 'rgba(255,255,255,0.1)',
+                            boxShadow: isHovered ? `0 0 10px ${service.glowColor}` : 'none'
+                          }}
+                        >
                           <IconComponent className={`w-5 h-5 ${service.iconColor} filter drop-shadow-[0_0_3px_currentColor]`} />
                         </div>
 
@@ -180,7 +194,8 @@ export const Services: React.FC<ServicesProps> = ({ hoveredService, onHoverServi
                           )}
                         </h3>
 
-                        <p className="font-inter text-xs md:text-sm text-text-light/60 group-hover:text-text-light/80 transition-colors leading-relaxed mb-5">
+                        {/* ── Fixed: brighter description text ── */}
+                        <p className="font-inter text-xs md:text-sm text-text-light/80 group-hover:text-text-light transition-colors leading-relaxed mb-5">
                           {service.desc}
                         </p>
                       </div>
