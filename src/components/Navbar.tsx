@@ -2,18 +2,16 @@ import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Zap, Menu, X, ArrowRight, PhoneCall } from "lucide-react";
 
+// Import the DBEPL logo — place the image in src/assets/dbepl-logo.png
+import dbeplLogo from "../assets/dbepl-logo.png";
+
 export const Navbar: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
-  // Detect scroll to style navbar background
   useEffect(() => {
     const handleScroll = () => {
-      if (window.scrollY > 30) {
-        setScrolled(true);
-      } else {
-        setScrolled(false);
-      }
+      setScrolled(window.scrollY > 30);
     };
     window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
@@ -49,23 +47,14 @@ export const Navbar: React.FC = () => {
         className="w-full"
       >
         <div className="w-full flex items-center justify-between">
-          {/* Logo Brand area */}
+
+          {/* ── Logo ── */}
           <a href="#home" className="flex items-center gap-3 group">
-            <div className="relative flex items-center justify-center w-10 h-10 rounded-xl bg-substation-dark/80 border border-neutral-800 group-hover:border-electric-amber/50 transition-all duration-300">
-              <Zap className="w-5 h-5 text-electric-amber group-hover:rotate-12 transition-transform duration-300" />
-            </div>
-            
-            <div className="flex flex-col">
-              <span 
-                style={{ fontFamily: "'Playfair Display', serif", fontSize: '1.25rem', fontWeight: 700, color: '#ffffff' }}
-                className="tracking-wider transition-colors duration-300"
-              >
-                DAS & <span style={{color:'var(--accent)'}}>BROTHERS</span>
-              </span>
-              <span className="text-[9px] font-mono text-arc-cyan tracking-[0.2em] font-medium leading-none">
-                ELECTRICALS PVT LTD
-              </span>
-            </div>
+            <img
+              src={dbeplLogo}
+              alt="DBEPL Logo"
+              className="h-12 w-auto object-contain drop-shadow-md group-hover:scale-105 transition-transform duration-300"
+            />
           </a>
 
           {/* Desktop Nav Links */}
@@ -90,7 +79,7 @@ export const Navbar: React.FC = () => {
 
           {/* Get a Quote CTA & Mobile Menu Toggle */}
           <div className="flex items-center gap-4">
-            <a 
+            <a
               href="#contact"
               className="relative hidden sm:inline-flex items-center justify-center px-5 py-2.5 rounded-xl font-orbitron text-xs font-bold tracking-wider text-deep-grid-navy bg-electric-amber hover:bg-electric-amber-dark transition-all duration-300 overflow-hidden group"
             >
@@ -121,6 +110,16 @@ export const Navbar: React.FC = () => {
             className="fixed inset-0 z-30 lg:hidden flex flex-col justify-center px-8 border-none"
           >
             <div className="flex flex-col gap-6 text-center">
+
+              {/* Logo in mobile drawer */}
+              <div className="flex justify-center mb-4">
+                <img
+                  src={dbeplLogo}
+                  alt="DBEPL Logo"
+                  className="h-16 w-auto object-contain"
+                />
+              </div>
+
               {navLinks.map((link, idx) => (
                 <motion.a
                   key={link.name}
@@ -150,9 +149,9 @@ export const Navbar: React.FC = () => {
                 >
                   GET A QUOTE <Zap className="w-4 h-4" />
                 </a>
-                
-                <a 
-                  href="tel:+91201234567" 
+
+                <a
+                  href="tel:+91201234567"
                   className="flex items-center gap-2 font-mono text-xs text-[var(--dark-muted)] hover:text-[var(--accent)] transition-colors"
                 >
                   <PhoneCall className="w-3.5 h-3.5" /> +91 20 2749 1987
