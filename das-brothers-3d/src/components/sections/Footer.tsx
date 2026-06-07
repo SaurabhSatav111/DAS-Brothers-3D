@@ -1,6 +1,6 @@
 import React from "react";
 import { Globe } from "lucide-react";
-import dbeplLogo from "../assets/dbepl-logo.png";
+import dbeplLogo from "../../assets/dbepl-logo.png";
 
 export const Footer: React.FC = () => {
   const currentYear = new Date().getFullYear();

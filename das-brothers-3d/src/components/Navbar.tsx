@@ -3,7 +3,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Zap, Menu, X, ArrowRight, PhoneCall } from "lucide-react";
 
 // Import the DBEPL logo — place the image in src/assets/dbepl-logo.png
-import dbeplLogo from "../assets/dbepl-logo.png";
+import dbeplLogo from "../../assets/dbepl-logo.png";
 
 export const Navbar: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
