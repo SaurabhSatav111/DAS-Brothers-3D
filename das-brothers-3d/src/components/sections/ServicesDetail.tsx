@@ -65,8 +65,7 @@ export const ServicesDetail: React.FC = () => {
   return (
     <section
       id="services-detail"
-      className="relative py-24 px-6 md:px-12 lg:px-24 overflow-hidden z-10"
-      style={{ background: '#0D1117' }}
+      className="relative py-24 px-6 md:px-12 lg:px-24 overflow-hidden z-10 bg-[#f0f4f8]"
     >
       <div className="max-w-7xl mx-auto flex flex-col gap-24">
         {details.map((detail, index) => {
@@ -79,15 +78,15 @@ export const ServicesDetail: React.FC = () => {
               {/* Text Area */}
               <div className={`lg:col-span-6 flex flex-col ${isEven ? "lg:order-1" : "lg:order-2"}`}>
                 <div className="flex items-center gap-2 mb-3">
-                  <div className="w-6 h-6 rounded bg-[#0F3460] border border-neutral-700 flex items-center justify-center">
+                  <div className="w-6 h-6 rounded bg-substation-dark border border-neutral-800 flex items-center justify-center">
                     <Icon className="w-3.5 h-3.5" style={{ color: detail.accentColor }} />
                   </div>
-                  <span className="text-[10px] md:text-xs font-mono px-2 py-0.5 rounded border border-neutral-700 bg-[#0F3460] text-arc-cyan tracking-widest">
+                  <span className="text-[10px] md:text-xs font-mono px-2 py-0.5 rounded border border-neutral-800 bg-substation-dark text-arc-cyan tracking-widest">
                     {detail.category}
                   </span>
                 </div>
 
-                <h3 className="font-orbitron font-extrabold text-2xl md:text-4xl text-white mb-2">
+                <h3 className="font-orbitron font-extrabold text-2xl md:text-4xl text-text-light mb-2">
                   {detail.title}
                 </h3>
 
@@ -95,7 +94,7 @@ export const ServicesDetail: React.FC = () => {
                   {detail.subtitle}
                 </h4>
 
-                <p className="font-inter text-xs md:text-sm text-[#a0aec0] leading-relaxed mb-6">
+                <p className="font-inter text-xs md:text-sm text-text-light/60 leading-relaxed mb-6">
                   {detail.desc}
                 </p>
 
@@ -103,7 +102,7 @@ export const ServicesDetail: React.FC = () => {
                   {detail.specs.map((spec, specIdx) => (
                     <li key={specIdx} className="flex items-start gap-3">
                       <CheckCircle2 className="w-4 h-4 mt-0.5 flex-shrink-0" style={{ color: detail.accentColor }} />
-                      <span className="font-inter text-xs md:text-sm text-[#cbd5e0]">
+                      <span className="font-inter text-xs md:text-sm text-text-light/80">
                         {spec}
                       </span>
                     </li>
