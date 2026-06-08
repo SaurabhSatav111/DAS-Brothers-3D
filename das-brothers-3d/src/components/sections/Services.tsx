@@ -71,11 +71,7 @@ export const Services: React.FC<ServicesProps> = ({ hoveredService, onHoverServi
 
   const gridVariants = {
     hidden: {},
-    visible: {
-      transition: {
-        staggerChildren: 0.12
-      }
-    }
+    visible: { transition: { staggerChildren: 0.12 } }
   };
 
   const cardVariants = {
@@ -91,14 +87,15 @@ export const Services: React.FC<ServicesProps> = ({ hoveredService, onHoverServi
     <section
       id="services"
       ref={sectionRef}
-      className="relative py-24 px-6 md:px-12 lg:px-24 overflow-hidden z-10 bg-[#ffffff]"
+      className="relative py-24 px-6 md:px-12 lg:px-24 overflow-hidden z-10"
+      style={{ background: '#0D1117' }}
     >
-      {/* Background elements */}
+      {/* Background glows */}
       <div className="absolute top-[30%] right-[10%] w-[40%] h-[40%] rounded-full bg-electric-amber/5 blur-[150px] -z-20 pointer-events-none" />
       <div className="absolute bottom-[10%] left-[5%] w-[30%] h-[30%] rounded-full bg-arc-cyan/5 blur-[120px] -z-20 pointer-events-none" />
 
       <div className="max-w-7xl mx-auto">
-        {/* Header Title */}
+        {/* Header */}
         <div className="text-center mb-16 max-w-2xl mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -112,7 +109,7 @@ export const Services: React.FC<ServicesProps> = ({ hoveredService, onHoverServi
             initial={{ opacity: 0, y: 30 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.6, delay: 0.1 }}
-            className="font-orbitron font-extrabold text-3xl md:text-5xl text-text-light tracking-tight mb-4"
+            className="font-orbitron font-extrabold text-3xl md:text-5xl text-white tracking-tight mb-4"
           >
             Wired for Excellence
           </motion.h2>
@@ -120,18 +117,18 @@ export const Services: React.FC<ServicesProps> = ({ hoveredService, onHoverServi
             initial={{ opacity: 0, y: 30 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="font-inter text-text-light/60 text-sm md:text-base leading-relaxed"
+            className="font-inter text-[#a0aec0] text-sm md:text-base leading-relaxed"
           >
             Hover on cards to inspect our high-voltage electrical grid capabilities.
           </motion.p>
         </div>
 
-        {/* Split Layout: Image Left | Service Cards Right */}
+        {/* Split Layout */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-stretch">
 
-          {/* Left Column: Industrial Electrical Panel Static Image */}
-          <div className="lg:col-span-5 min-h-[400px] lg:min-h-0 rounded-2xl border border-neutral-900 bg-[#0F3460]/10 overflow-hidden relative isolate z-0 flex flex-col justify-stretch">
-            <div className="absolute top-4 left-4 z-20 flex items-center gap-1.5 px-2.5 py-1 rounded bg-[#1A1A2E]/80 border border-neutral-800 text-[10px] font-mono text-text-light/50">
+          {/* Left: Image */}
+          <div className="lg:col-span-5 min-h-[400px] lg:min-h-0 rounded-2xl border border-neutral-800 bg-[#0F3460]/10 overflow-hidden relative isolate z-0 flex flex-col justify-stretch">
+            <div className="absolute top-4 left-4 z-20 flex items-center gap-1.5 px-2.5 py-1 rounded backdrop-blur-sm bg-black/50 border border-white/20 text-[10px] font-mono text-white">
               <span className="w-1.5 h-1.5 rounded-full bg-electric-amber" />
               POWER INFRASTRUCTURE
             </div>
@@ -141,7 +138,7 @@ export const Services: React.FC<ServicesProps> = ({ hoveredService, onHoverServi
             />
           </div>
 
-          {/* Right Column: Service Cards Grid */}
+          {/* Right: Cards */}
           <div className="lg:col-span-7">
             <motion.div
               variants={gridVariants}
@@ -162,9 +159,7 @@ export const Services: React.FC<ServicesProps> = ({ hoveredService, onHoverServi
                     onMouseLeave={() => onHoverService(null)}
                   >
                     <div
-                      className={`h-full p-6 rounded-2xl glass-panel flex flex-col justify-between relative overflow-hidden transition-all duration-300 ${service.borderColor} ${isHovered
-                          ? "bg-[#0F3460]/90 shadow-lg"
-                          : "bg-[#0F3460]/30"
+                      className={`h-full p-6 rounded-2xl flex flex-col justify-between relative overflow-hidden transition-all duration-300 ${isHovered ? "bg-[#0F3460]/90 shadow-lg" : "bg-[#0F3460]/30"
                         }`}
                       style={{
                         border: `1.5px solid`,
@@ -172,12 +167,11 @@ export const Services: React.FC<ServicesProps> = ({ hoveredService, onHoverServi
                         boxShadow: isHovered ? `0 0 18px ${service.glowColor}, inset 0 0 12px ${service.glowColor}` : `0 0 0px transparent`
                       }}
                     >
-                      {/* Subtle color highlight circle */}
                       <div className={`absolute -top-16 -right-16 w-36 h-36 rounded-full bg-gradient-to-br ${service.color} blur-2xl group-hover:scale-125 transition-transform duration-700`} />
 
                       <div>
-                        {/* Icon */}
-                        <div className={`w-11 h-11 rounded-xl bg-substation-dark flex items-center justify-center mb-5 transition-all duration-300`}
+                        <div
+                          className="w-11 h-11 rounded-xl bg-substation-dark flex items-center justify-center mb-5 transition-all duration-300"
                           style={{
                             border: `1px solid`,
                             borderColor: isHovered ? service.glowColor.replace('0.15', '0.6') : 'rgba(255,255,255,0.1)',
@@ -187,15 +181,12 @@ export const Services: React.FC<ServicesProps> = ({ hoveredService, onHoverServi
                           <IconComponent className={`w-5 h-5 ${service.iconColor} filter drop-shadow-[0_0_3px_currentColor]`} />
                         </div>
 
-                        <h3 className="font-orbitron font-extrabold text-base text-text-light group-hover:text-electric-amber transition-colors duration-300 mb-2 flex items-center gap-2">
+                        <h3 className="font-orbitron font-extrabold text-base text-white group-hover:text-electric-amber transition-colors duration-300 mb-2 flex items-center gap-2">
                           {service.title}
-                          {isHovered && (
-                            <span className="w-1.5 h-1.5 rounded-full bg-success-live animate-ping" />
-                          )}
+                          {isHovered && <span className="w-1.5 h-1.5 rounded-full bg-success-live animate-ping" />}
                         </h3>
 
-                        {/* ── Fixed: brighter description text ── */}
-                        <p className="font-inter text-xs md:text-sm text-text-light/80 group-hover:text-text-light transition-colors leading-relaxed mb-5">
+                        <p className="font-inter text-xs md:text-sm text-[#a0aec0] group-hover:text-white transition-colors leading-relaxed mb-5">
                           {service.desc}
                         </p>
                       </div>
