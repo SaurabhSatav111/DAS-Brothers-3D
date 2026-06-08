@@ -42,14 +42,35 @@ export const Footer: React.FC = () => {
       <div className="max-w-7xl mx-auto">
         <div className="footer-grid">
 
-          {/* Column 1 — Logo + tagline */}
+          {/* Column 1 — Logo + name + tagline */}
           <div>
-            <a href="#home" className="flex items-center gap-2.5" style={{ textDecoration: 'none' }}>
+            <a href="#home" className="flex items-center gap-3" style={{ textDecoration: 'none' }}>
               <img
                 src={dbeplLogo}
                 alt="DBEPL Logo"
                 className="h-14 w-auto object-contain"
               />
+              <div className="flex flex-col leading-tight">
+                <span style={{
+                  fontFamily: "'Playfair Display', serif",
+                  fontSize: '1.1rem',
+                  fontWeight: 700,
+                  color: '#ffffff',
+                  letterSpacing: '0.05em'
+                }}>
+                  DAS & BROTHERS
+                </span>
+                <span style={{
+                  fontFamily: "'Source Sans 3', sans-serif",
+                  fontSize: '0.58rem',
+                  fontWeight: 600,
+                  color: '#00D4FF',
+                  letterSpacing: '0.18em',
+                  textTransform: 'uppercase'
+                }}>
+                  ELECTRICALS PVT LTD
+                </span>
+              </div>
             </a>
             <p style={{ fontFamily: "'Source Sans 3', sans-serif", fontSize: '0.88rem', color: '#a0aec0', marginTop: '0.75rem', lineHeight: '1.6' }}>
               Class-A Electrical EPC Contractors. Erecting heavy power substations and industrial grids across Maharashtra since 1987.
@@ -79,7 +100,6 @@ export const Footer: React.FC = () => {
               Contact & Licensing
             </span>
             <div className="flex flex-col gap-3">
-              {/* Phone */}
               <div className="flex items-center gap-2">
                 <svg className="w-3.5 h-3.5" style={{ color: '#E87722' }} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
                   <path strokeLinecap="round" strokeLinejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.94.725l.548 2.2a1 1 0 01-.321.988l-1.305.98a10.582 10.582 0 004.872 4.872l.98-1.305a1 1 0 01.988-.321l2.2.548a1 1 0 01.725.94V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
@@ -89,7 +109,6 @@ export const Footer: React.FC = () => {
                 </a>
               </div>
 
-              {/* Email */}
               <div className="flex items-center gap-2">
                 <svg className="w-3.5 h-3.5" style={{ color: '#E87722' }} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
                   <path strokeLinecap="round" strokeLinejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
@@ -99,7 +118,6 @@ export const Footer: React.FC = () => {
                 </a>
               </div>
 
-              {/* Licensing */}
               <div className="mt-2 flex flex-col gap-2" style={{ fontFamily: "'Source Sans 3', sans-serif", fontSize: '0.85rem', color: '#a0aec0' }}>
                 <span className="flex items-center gap-1.5">
                   <div className="w-1.5 h-1.5 rounded-full bg-green-500" />

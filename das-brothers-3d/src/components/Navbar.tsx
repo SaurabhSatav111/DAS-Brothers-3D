@@ -46,13 +46,34 @@ export const Navbar: React.FC = () => {
       >
         <div className="w-full flex items-center justify-between">
 
-          {/* Logo */}
-          <a href="#home" className="flex items-center gap-3 group">
+          {/* Logo + Brand Name */}
+          <a href="#home" className="flex items-center gap-3 group" style={{ textDecoration: 'none' }}>
             <img
               src={dbeplLogo}
               alt="DBEPL Logo"
-              className="h-12 w-auto object-contain drop-shadow-md group-hover:scale-105 transition-transform duration-300"
+              className="h-11 w-auto object-contain drop-shadow-md group-hover:scale-105 transition-transform duration-300"
             />
+            <div className="flex flex-col leading-tight">
+              <span style={{
+                fontFamily: "'Playfair Display', serif",
+                fontSize: '1.15rem',
+                fontWeight: 700,
+                color: '#ffffff',
+                letterSpacing: '0.05em'
+              }}>
+                DAS & BROTHERS
+              </span>
+              <span style={{
+                fontFamily: "'Source Sans 3', sans-serif",
+                fontSize: '0.6rem',
+                fontWeight: 600,
+                color: '#00D4FF',
+                letterSpacing: '0.18em',
+                textTransform: 'uppercase'
+              }}>
+                ELECTRICALS PVT LTD
+              </span>
+            </div>
           </a>
 
           {/* Desktop Nav Links */}
@@ -111,12 +132,34 @@ export const Navbar: React.FC = () => {
           >
             <div className="flex flex-col gap-6 text-center">
 
-              <div className="flex justify-center mb-4">
+              {/* Logo + name in mobile drawer */}
+              <div className="flex flex-col items-center mb-4 gap-2">
                 <img
                   src={dbeplLogo}
                   alt="DBEPL Logo"
                   className="h-16 w-auto object-contain"
                 />
+                <div className="flex flex-col items-center leading-tight">
+                  <span style={{
+                    fontFamily: "'Playfair Display', serif",
+                    fontSize: '1.1rem',
+                    fontWeight: 700,
+                    color: '#ffffff',
+                    letterSpacing: '0.05em'
+                  }}>
+                    DAS & BROTHERS
+                  </span>
+                  <span style={{
+                    fontFamily: "'Source Sans 3', sans-serif",
+                    fontSize: '0.6rem',
+                    fontWeight: 600,
+                    color: '#00D4FF',
+                    letterSpacing: '0.18em',
+                    textTransform: 'uppercase'
+                  }}>
+                    ELECTRICALS PVT LTD
+                  </span>
+                </div>
               </div>
 
               {navLinks.map((link, idx) => (
