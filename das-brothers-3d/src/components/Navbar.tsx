@@ -1,8 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Zap, Menu, X, ArrowRight, PhoneCall } from "lucide-react";
-
-// Import the DBEPL logo — place the image in src/assets/dbepl-logo.png
 import dbeplLogo from "../assets/dbepl-logo.png";
 
 export const Navbar: React.FC = () => {
@@ -33,8 +31,8 @@ export const Navbar: React.FC = () => {
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.8, delay: 0.5, ease: [0.16, 1, 0.3, 1] }}
         style={{
-          background: scrolled ? 'rgba(13, 17, 23, 0.98)' : 'var(--dark-bg)',
-          borderBottom: '1px solid var(--border-dark)',
+          background: scrolled ? 'rgba(13, 17, 23, 0.98)' : '#0D1117',
+          borderBottom: '1px solid rgba(255,255,255,0.08)',
           position: 'sticky',
           top: 0,
           zIndex: 1000,
@@ -48,7 +46,7 @@ export const Navbar: React.FC = () => {
       >
         <div className="w-full flex items-center justify-between">
 
-          {/* ── Logo ── */}
+          {/* Logo */}
           <a href="#home" className="flex items-center gap-3 group">
             <img
               src={dbeplLogo}
@@ -68,16 +66,18 @@ export const Navbar: React.FC = () => {
                   fontSize: '0.88rem',
                   fontWeight: 600,
                   textTransform: 'uppercase',
-                  letterSpacing: '0.06em'
+                  letterSpacing: '0.06em',
+                  color: '#a0aec0',
+                  textDecoration: 'none'
                 }}
-                className="text-[var(--dark-muted)] hover:text-[var(--accent)] transition-colors duration-300 py-2"
+                className="hover:text-[#E87722] transition-colors duration-300 py-2"
               >
                 {link.name}
               </a>
             ))}
           </div>
 
-          {/* Get a Quote CTA & Mobile Menu Toggle */}
+          {/* CTA + Mobile Toggle */}
           <div className="flex items-center gap-4">
             <a
               href="#contact"
@@ -98,7 +98,7 @@ export const Navbar: React.FC = () => {
         </div>
       </motion.nav>
 
-      {/* Mobile Drawer Overlay */}
+      {/* Mobile Drawer */}
       <AnimatePresence>
         {isOpen && (
           <motion.div
@@ -106,12 +106,11 @@ export const Navbar: React.FC = () => {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.3 }}
-            style={{ background: 'var(--dark-bg-3)' }}
-            className="fixed inset-0 z-30 lg:hidden flex flex-col justify-center px-8 border-none"
+            style={{ background: '#0D1117' }}
+            className="fixed inset-0 z-30 lg:hidden flex flex-col justify-center px-8"
           >
             <div className="flex flex-col gap-6 text-center">
 
-              {/* Logo in mobile drawer */}
               <div className="flex justify-center mb-4">
                 <img
                   src={dbeplLogo}
@@ -129,7 +128,8 @@ export const Navbar: React.FC = () => {
                   exit={{ x: -30, opacity: 0 }}
                   transition={{ delay: idx * 0.08, duration: 0.4 }}
                   onClick={() => setIsOpen(false)}
-                  className="font-orbitron text-xl font-bold tracking-wide text-[var(--dark-muted)] hover:text-[var(--accent)] transition-colors duration-300 py-2 border-b border-neutral-900/40"
+                  style={{ color: '#a0aec0', textDecoration: 'none' }}
+                  className="font-orbitron text-xl font-bold tracking-wide hover:text-[#E87722] transition-colors duration-300 py-2 border-b border-neutral-900/40"
                 >
                   {link.name}
                 </motion.a>
@@ -152,7 +152,7 @@ export const Navbar: React.FC = () => {
 
                 <a
                   href="tel:+91201234567"
-                  className="flex items-center gap-2 font-mono text-xs text-[var(--dark-muted)] hover:text-[var(--accent)] transition-colors"
+                  className="flex items-center gap-2 font-mono text-xs text-[#a0aec0] hover:text-[#E87722] transition-colors"
                 >
                   <PhoneCall className="w-3.5 h-3.5" /> +91 20 2749 1987
                 </a>
